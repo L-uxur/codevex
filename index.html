@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CODEVEX | IT Services</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#05070d;
+    color:white;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    padding:0 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(5,7,13,.85);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #182131;
+    z-index:1000;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#00e5ff;
+}
+
+nav a{
+    color:#b9c1ce;
+    text-decoration:none;
+    margin-left:28px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00e5ff;
+}
+
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 70px;
+
+    background:
+    radial-gradient(circle at 50% 40%,
+    #123849 0%,
+    #071018 35%,
+    #05070d 70%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 18px;
+
+    border:1px solid #00e5ff;
+    border-radius:50px;
+
+    color:#00e5ff;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:72px;
+    line-height:1.05;
+}
+
+.hero h1 span{
+    color:#00e5ff;
+}
+
+.hero p{
+    color:#9da7b7;
+    font-size:19px;
+    line-height:1.7;
+
+    max-width:700px;
+
+    margin:25px auto;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:15px 30px;
+
+    background:#00e5ff;
+    color:#001014;
+
+    border-radius:8px;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 30px rgba(0,229,255,.7);
+}
+
+
+/* ===== GENERAL ===== */
+
+section{
+    padding:100px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:55px;
+}
+
+.title span{
+    color:#00e5ff;
+}
+
+
+/* ===== SERVICES ===== */
+
+.services{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+}
+
+.card{
+
+    background:
+    linear-gradient(
+    145deg,
+    #0c121c,
+    #080d15
+    );
+
+    border:1px solid #1b2635;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    transition:.35s;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    background:#00e5ff;
+
+    filter:blur(70px);
+
+    opacity:.08;
+
+    top:-30px;
+    right:-30px;
+}
+
+.card:hover{
+    transform:translateY(-9px);
+
+    border-color:#00e5ff;
+
+    box-shadow:
+    0 15px 40px rgba(0,229,255,.12);
+}
+
+.app-icon{
+
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#111a27;
+
+    font-size:32px;
+
+    margin-bottom:22px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#929dac;
+    line-height:1.6;
+}
+
+
+/* ===== ABOUT ===== */
+
+.about{
+    max-width:850px;
+    margin:auto;
+
+    text-align:center;
+}
+
+.about p{
+    color:#9da7b7;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+
+/* ===== ORDER ===== */
+
+.order{
+    background:#080c14;
+}
+
+.form{
+    max-width:650px;
+    margin:auto;
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-bottom:15px;
+
+    border-radius:9px;
+
+    border:1px solid #202c3d;
+
+    background:#0d141f;
+
+    color:white;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#00e5ff;
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#00e5ff;
+
+    color:#001014;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    box-shadow:0 0 30px #00e5ff;
+}
+
+
+/* ===== CONTACT ===== */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#9da7b7;
+    margin:15px;
+}
+
+.contact a{
+    color:#00e5ff;
+    text-decoration:none;
+}
+
+.socials{
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.socials a{
+
+    width:50px;
+    height:50px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border:1px solid #253246;
+
+    border-radius:50%;
+
+    font-size:21px;
+
+    color:white;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+    transform:translateY(-5px);
+    border-color:#00e5ff;
+    color:#00e5ff;
+}
+
+
+/* ===== FOOTER ===== */
+
+footer{
+
+    padding:30px;
+
+    text-align:center;
+
+    border-top:1px solid #172131;
+
+    color:#667184;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px){
+
+    header{
+        padding:0 5%;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+    .title{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        CODE<span>VEX</span>
+    </div>
+
+    <nav>
+        <a href="#home">Baş sahypa</a>
+        <a href="#services">Hyzmatlar</a>
+        <a href="#about">Biz barada</a>
+        <a href="#order">Sargyt</a>
+        <a href="#contact">Habarlaş</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+    <div class="badge">
+        <i class="fa-solid fa-code"></i>
+        Digital IT Services
+    </div>
+
+    <h1>
+        Your Idea.<br>
+        <span>Our Code.</span>
+    </h1>
+
+    <p>
+        Web sahypalar, programmirleme, Microsoft Office,
+        dizaýn we beýleki sanly hyzmatlar.
+    </p>
+
+    <a href="#order" class="btn">
+        Sargyt et
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+<h2 class="title">
+    Biziň <span>hyzmatlarymyz</span>
+</h2>
+
+
+<div class="services">
+
+
+<!-- HTML -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-brands fa-html5"></i>
+    </div>
+
+    <h3>HTML / CSS</h3>
+
+    <p>
+        Döwrebap we responsive web sahypalary
+        taýýarlamak.
+    </p>
+
+</div>
+
+
+<!-- C -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-c"></i>
+    </div>
+
+    <h3>C / C++</h3>
+
+    <p>
+        Programmirleme boýunça kodlary
+        we okuw taslamalaryny taýýarlamak.
+    </p>
+
+</div>
+
+
+<!-- C# -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-hashtag"></i>
+    </div>
+
+    <h3>C#</h3>
+
+    <p>
+        C# bilen programma we dürli kod
+        çözgütlerini taýýarlamak.
+    </p>
+
+</div>
+
+
+<!-- PYTHON -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-brands fa-python"></i>
+    </div>
+
+    <h3>Python</h3>
+
+    <p>
+        Python programmirleme we kiçi
+        awtomatlaşdyrma işleri.
+    </p>
+
+</div>
+
+
+<!-- WORD -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-file-word"></i>
+    </div>
+
+    <h3>Microsoft Word</h3>
+
+    <p>
+        Dokumentler, referatlar, tablisalar
+        we tekst işleri.
+    </p>
+
+</div>
+
+
+<!-- POWERPOINT -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-file-powerpoint"></i>
+    </div>
+
+    <h3>PowerPoint</h3>
+
+    <p>
+        Owadan we professional prezentasiýalar
+        taýýarlamak.
+    </p>
+
+</div>
+
+
+<!-- EXCEL -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-file-excel"></i>
+    </div>
+
+    <h3>Microsoft Excel</h3>
+
+    <p>
+        Formulalar, maglumatlar we
+        professional tablisa işleri.
+    </p>
+
+</div>
+
+
+<!-- COMPUTER -->
+
+<div class="card">
+
+    <div class="app-icon">
+        <i class="fa-solid fa-laptop"></i>
+    </div>
+
+    <h3>Kompýuter hyzmatlary</h3>
+
+    <p>
+        Programma sazlamalary we
+        kompýuter boýunça tehniki kömek.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<h2 class="title">
+    Näme üçin <span>CODEVEX?</span>
+</h2>
+
+<div class="about">
+
+<p>
+
+CODEVEX — web development, programmirleme
+we sanly hyzmatlar boýunça döredilen kiçi
+IT hyzmat platformasydyr.
+
+Her bir sargyt üçin maksadymyz:
+<strong>ýönekeý, döwrebap we işleýän çözgüt.</strong>
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= ORDER ================= -->
+
+<section class="order" id="order">
+
+<h2 class="title">
+
+<span>Sargyt</span> etmek
+
+</h2>
+
+
+<div class="form">
+
+<input
+type="text"
+id="name"
+placeholder="Adyňyz"
+>
+
+<input
+type="text"
+id="contact"
+placeholder="Telegram / Telefon"
+>
+
+
+<select id="service">
+
+<option value="">
+Hyzmat saýlaň
+</option>
+
+<option>Web sahypa</option>
+
+<option>C / C++</option>
+
+<option>C#</option>
+
+<option>Python</option>
+
+<option>Microsoft Word</option>
+
+<option>PowerPoint</option>
+
+<option>Excel</option>
+
+<option>Kompýuter hyzmaty</option>
+
+<option>Beýleki</option>
+
+</select>
+
+
+<textarea
+id="message"
+placeholder="Näme gerekdigini düşündiriň..."
+></textarea>
+
+
+<button onclick="sendOrder()">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+ Sargydy ugrat
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<h2 class="title">
+
+<span>Habarlaş</span>
+
+</h2>
+
+
+<p>
+
+<i class="fa-brands fa-telegram"></i>
+
+Telegram:
+
+<a href="https://t.me/SENING_USERNAME">
+
+@SENING_USERNAME
+
+</a>
+
+</p>
+
+
+<p>
+
+<i class="fa-solid fa-envelope"></i>
+
+Email:
+
+<a href="mailto:sen@email.com">
+
+sen@email.com
+
+</a>
+
+</p>
+
+
+<div class="socials">
+
+<a href="#">
+<i class="fa-brands fa-telegram"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-github"></i>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 CODEVEX — Digital IT Services
+
+</footer>
+
+
+<script>
+
+function sendOrder(){
+
+    let name =
+    document.getElementById("name").value;
+
+    let contact =
+    document.getElementById("contact").value;
+
+    let service =
+    document.getElementById("service").value;
+
+    let message =
+    document.getElementById("message").value;
+
+
+    if(
+        name === "" ||
+        contact === "" ||
+        service === "" ||
+        message === ""
+    ){
+
+        alert("Ähli ýerleri dolduryň!");
+
+        return;
+
+    }
+
+
+    alert(
+        "Sargydyňyz kabul edildi! 🚀\n\n" +
+        "Hyzmat: " + service +
+        "\n\nIndi ony Telegram-a birikdirip bileris."
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
