@@ -1,90 +1,114 @@
 <!DOCTYPE html>
-<html lang="tk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CODEVEX | IT Services</title>
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>CODEVEX — IT Services</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
     scroll-behavior:smooth;
-    font-family:Arial, sans-serif;
 }
 
 body{
     background:#05070d;
     color:white;
+    overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
-
-header{
+/* ANIMATED BACKGROUND */
+body::before{
+    content:"";
     position:fixed;
+    width:600px;
+    height:600px;
+    background:#00eaff;
+    filter:blur(180px);
+    opacity:.12;
+    top:-250px;
+    left:-200px;
+    z-index:-2;
+    animation:move1 8s infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#7c3cff;
+    filter:blur(180px);
+    opacity:.12;
+    right:-200px;
+    bottom:-200px;
+    z-index:-2;
+    animation:move2 10s infinite alternate;
+}
+
+@keyframes move1{
+    from{transform:translate(0,0)}
+    to{transform:translate(180px,120px)}
+}
+
+@keyframes move2{
+    from{transform:translate(0,0)}
+    to{transform:translate(-150px,-100px)}
+}
+
+/* HEADER */
+header{
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
-    height:75px;
-    padding:0 8%;
+    z-index:100;
+    backdrop-filter:blur(15px);
+    background:rgba(5,7,13,.75);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    background:rgba(5,7,13,.85);
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid #182131;
-    z-index:1000;
 }
 
 .logo{
-    font-size:27px;
+    font-size:26px;
     font-weight:900;
     letter-spacing:2px;
+    color:#00eaff;
+    text-shadow:0 0 20px #00eaff;
 }
 
-.logo span{
-    color:#00e5ff;
-}
-
-nav a{
-    color:#b9c1ce;
+.nav a{
+    color:#aaa;
     text-decoration:none;
-    margin-left:28px;
+    margin-left:20px;
     transition:.3s;
 }
 
-nav a:hover{
-    color:#00e5ff;
+.nav a:hover{
+    color:#00eaff;
 }
 
-
-/* ===== HERO ===== */
-
+/* HERO */
 .hero{
-    min-height:100vh;
-
+    min-height:90vh;
     display:flex;
-    align-items:center;
     justify-content:center;
-
+    align-items:center;
     text-align:center;
-
-    padding:120px 20px 70px;
-
-    background:
-    radial-gradient(circle at 50% 40%,
-    #123849 0%,
-    #071018 35%,
-    #05070d 70%);
+    padding:60px 20px;
 }
 
 .hero-content{
@@ -93,786 +117,632 @@ nav a:hover{
 
 .badge{
     display:inline-block;
-
-    padding:9px 18px;
-
-    border:1px solid #00e5ff;
-    border-radius:50px;
-
-    color:#00e5ff;
-
-    font-size:14px;
-
+    padding:8px 16px;
+    border:1px solid rgba(0,234,255,.35);
+    border-radius:30px;
+    color:#00eaff;
+    background:rgba(0,234,255,.06);
     margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:72px;
-    line-height:1.05;
+    font-size:clamp(45px,8vw,90px);
+    line-height:1;
+    margin-bottom:25px;
 }
 
 .hero h1 span{
-    color:#00e5ff;
+    color:#00eaff;
+    text-shadow:0 0 35px rgba(0,234,255,.5);
 }
 
 .hero p{
-    color:#9da7b7;
-    font-size:19px;
+    color:#aaa;
+    font-size:18px;
     line-height:1.7;
-
-    max-width:700px;
-
-    margin:25px auto;
+    max-width:650px;
+    margin:auto;
 }
 
 .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    padding:15px 30px;
-
-    background:#00e5ff;
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    border-radius:12px;
+    background:#00eaff;
     color:#001014;
-
-    border-radius:8px;
-
-    text-decoration:none;
     font-weight:bold;
-
+    text-decoration:none;
+    box-shadow:0 0 30px rgba(0,234,255,.3);
     transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-4px);
-    box-shadow:0 0 30px rgba(0,229,255,.7);
+    box-shadow:0 0 45px rgba(0,234,255,.55);
 }
 
-
-/* ===== GENERAL ===== */
-
+/* SECTIONS */
 section{
-    padding:100px 8%;
+    max-width:1150px;
+    margin:auto;
+    padding:90px 20px;
 }
 
 .title{
     text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
     font-size:40px;
-    margin-bottom:55px;
+    margin-bottom:12px;
 }
 
-.title span{
-    color:#00e5ff;
+.title p{
+    color:#888;
 }
 
-
-/* ===== SERVICES ===== */
-
+/* SERVICES */
 .services{
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(230px,1fr));
-
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px;
 }
 
 .card{
-
-    background:
-    linear-gradient(
-    145deg,
-    #0c121c,
-    #080d15
-    );
-
-    border:1px solid #1b2635;
-
-    border-radius:18px;
-
-    padding:30px;
-
-    transition:.35s;
-
     position:relative;
+    padding:25px;
+    min-height:210px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    transition:.35s;
+    cursor:pointer;
     overflow:hidden;
 }
 
 .card::before{
     content:"";
-
     position:absolute;
-
-    width:100px;
-    height:100px;
-
-    background:#00e5ff;
-
+    width:120px;
+    height:120px;
+    background:#00eaff;
     filter:blur(70px);
-
-    opacity:.08;
-
-    top:-30px;
-    right:-30px;
+    opacity:0;
+    transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-9px);
-
-    border-color:#00e5ff;
-
-    box-shadow:
-    0 15px 40px rgba(0,229,255,.12);
+    transform:translateY(-8px);
+    border-color:rgba(0,234,255,.5);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
-.app-icon{
+.card:hover::before{
+    opacity:.18;
+}
 
+.icon{
     width:65px;
     height:65px;
-
+    border-radius:16px;
     display:flex;
-    align-items:center;
     justify-content:center;
-
-    border-radius:15px;
-
-    background:#111a27;
-
-    font-size:32px;
-
-    margin-bottom:22px;
+    align-items:center;
+    font-size:27px;
+    font-weight:900;
+    margin-bottom:20px;
+    position:relative;
+    z-index:1;
 }
 
 .card h3{
-    font-size:21px;
-    margin-bottom:12px;
+    position:relative;
+    z-index:1;
+    margin-bottom:10px;
 }
 
-.card p{
-    color:#929dac;
-    line-height:1.6;
-}
-
-
-/* ===== ABOUT ===== */
-
-.about{
-    max-width:850px;
-    margin:auto;
-
-    text-align:center;
-}
-
-.about p{
-    color:#9da7b7;
-
-    font-size:18px;
-
-    line-height:1.9;
-}
-
-
-/* ===== ORDER ===== */
-
-.order{
-    background:#080c14;
-}
-
-.form{
-    max-width:650px;
-    margin:auto;
-}
-
-input,
-select,
-textarea{
-
-    width:100%;
-
-    padding:16px;
-
-    margin-bottom:15px;
-
-    border-radius:9px;
-
-    border:1px solid #202c3d;
-
-    background:#0d141f;
-
-    color:white;
-
-    outline:none;
-
-    font-size:15px;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#00e5ff;
-}
-
-textarea{
-    height:150px;
-    resize:none;
-}
-
-button{
-
-    width:100%;
-
-    padding:16px;
-
-    border:0;
-
-    border-radius:9px;
-
-    background:#00e5ff;
-
-    color:#001014;
-
+.price{
+    position:relative;
+    z-index:1;
+    color:#00eaff;
     font-weight:bold;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
+    font-size:18px;
 }
 
-button:hover{
-    box-shadow:0 0 30px #00e5ff;
+.desc{
+    position:relative;
+    z-index:1;
+    color:#888;
+    font-size:13px;
+    margin-top:10px;
 }
 
+/* LOGO COLORS */
+.html{background:#e44d26;color:white}
+.css{background:#1572b6;color:white}
+.js{background:#f7df1e;color:#111}
+.cpp{background:#00599c;color:white}
+.cs{background:#68217a;color:white}
+.python{background:#3776ab;color:#ffd343}
+.word{background:#2b579a;color:white}
+.excel{background:#217346;color:white}
+.powerpoint{background:#d24726;color:white}
+.it{background:#00a8ff;color:white}
 
-/* ===== CONTACT ===== */
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
 
+.box{
+    padding:35px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+}
+
+.box h3{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.box p{
+    color:#999;
+    line-height:1.8;
+}
+
+/* CONTACT */
 .contact{
-    text-align:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
-.contact p{
-    color:#9da7b7;
-    margin:15px;
+.contact-box{
+    padding:30px;
+    border-radius:22px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.contact a{
-    color:#00e5ff;
-    text-decoration:none;
-}
-
-.socials{
-    margin-top:30px;
-
+.gmail{
     display:flex;
-
-    justify-content:center;
-
+    align-items:center;
     gap:18px;
 }
 
-.socials a{
-
-    width:50px;
-    height:50px;
-
+.google-g{
+    width:60px;
+    height:60px;
+    background:white;
+    border-radius:15px;
     display:flex;
-
     justify-content:center;
     align-items:center;
+    font-size:36px;
+    font-weight:900;
+    color:#4285f4;
+}
 
-    border:1px solid #253246;
+.contact-box h3{
+    margin-bottom:8px;
+}
 
-    border-radius:50%;
+.contact-box p{
+    color:#999;
+    word-break:break-word;
+}
 
-    font-size:21px;
+/* FORM */
+.form{
+    display:grid;
+    gap:15px;
+}
 
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    padding:15px;
+    background:#090d16;
     color:white;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    outline:none;
+}
 
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+    border-color:#00eaff;
+    box-shadow:0 0 15px rgba(0,234,255,.12);
+}
+
+.form textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.submit{
+    border:none;
+    cursor:pointer;
+    padding:15px;
+    border-radius:12px;
+    background:#00eaff;
+    color:#001014;
+    font-weight:900;
+    font-size:16px;
     transition:.3s;
 }
 
-.socials a:hover{
-    transform:translateY(-5px);
-    border-color:#00e5ff;
-    color:#00e5ff;
+.submit:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(0,234,255,.4);
 }
 
-
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 footer{
-
-    padding:30px;
-
     text-align:center;
-
-    border-top:1px solid #172131;
-
-    color:#667184;
+    padding:35px 20px;
+    color:#666;
+    border-top:1px solid rgba(255,255,255,.07);
 }
 
+footer span{
+    color:#00eaff;
+}
 
-/* ===== MOBILE ===== */
-
+/* MOBILE */
 @media(max-width:700px){
 
-    header{
-        padding:0 5%;
-    }
-
-    nav{
+    .nav a{
         display:none;
     }
 
-    .hero h1{
-        font-size:45px;
+    .hero{
+        min-height:80vh;
     }
 
-    .hero p{
-        font-size:16px;
+    .hero h1{
+        font-size:48px;
+    }
+
+    .about,
+    .contact{
+        grid-template-columns:1fr;
     }
 
     section{
-        padding:75px 5%;
+        padding:65px 15px;
     }
 
-    .title{
+    .title h2{
         font-size:32px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
 <header>
+    <div class="nav">
+        <div class="logo">CODEVEX</div>
 
-    <div class="logo">
-        CODE<span>VEX</span>
+        <div>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#order">Order</a>
+        </div>
     </div>
-
-    <nav>
-        <a href="#home">Baş sahypa</a>
-        <a href="#services">Hyzmatlar</a>
-        <a href="#about">Biz barada</a>
-        <a href="#order">Sargyt</a>
-        <a href="#contact">Habarlaş</a>
-    </nav>
-
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
+<div class="hero">
 
-<section class="hero" id="home">
+    <div class="hero-content">
 
-<div class="hero-content">
+        <div class="badge">⚡ DIGITAL IT SERVICES</div>
 
-    <div class="badge">
-        <i class="fa-solid fa-code"></i>
-        Digital IT Services
+        <h1>
+            Your Idea.<br>
+            <span>Our Code.</span>
+        </h1>
+
+        <p>
+            CODEVEX — websites, programming, documents,
+            presentations, Excel and IT solutions.
+        </p>
+
+        <a class="btn" href="#services">
+            Explore Services →
+        </a>
+
     </div>
-
-    <h1>
-        Your Idea.<br>
-        <span>Our Code.</span>
-    </h1>
-
-    <p>
-        Web sahypalar, programmirleme, Microsoft Office,
-        dizaýn we beýleki sanly hyzmatlar.
-    </p>
-
-    <a href="#order" class="btn">
-        Sargyt et
-        <i class="fa-solid fa-arrow-right"></i>
-    </a>
 
 </div>
 
-</section>
 
-
-<!-- ================= SERVICES ================= -->
-
+<!-- SERVICES -->
 <section id="services">
 
-<h2 class="title">
-    Biziň <span>hyzmatlarymyz</span>
-</h2>
-
-
-<div class="services">
-
-
-<!-- HTML -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-brands fa-html5"></i>
+    <div class="title">
+        <h2>Our Services</h2>
+        <p>Choose a service and place your order.</p>
     </div>
 
-    <h3>HTML / CSS</h3>
+    <div class="services">
 
-    <p>
-        Döwrebap we responsive web sahypalary
-        taýýarlamak.
-    </p>
+        <div class="card" onclick="chooseService('HTML — from 20 TMT')">
+            <div class="icon html">HTML</div>
+            <h3>HTML</h3>
+            <div class="price">from 20 TMT</div>
+            <div class="desc">Modern web page development.</div>
+        </div>
 
-</div>
+        <div class="card" onclick="chooseService('CSS — from 20 TMT')">
+            <div class="icon css">CSS</div>
+            <h3>CSS</h3>
+            <div class="price">from 20 TMT</div>
+            <div class="desc">Beautiful responsive design.</div>
+        </div>
 
+        <div class="card" onclick="chooseService('JavaScript — from 30 TMT')">
+            <div class="icon js">JS</div>
+            <h3>JavaScript</h3>
+            <div class="price">from 30 TMT</div>
+            <div class="desc">Interactive website functions.</div>
+        </div>
 
-<!-- C -->
+        <div class="card" onclick="chooseService('C++ — from 30 TMT')">
+            <div class="icon cpp">C++</div>
+            <h3>C++</h3>
+            <div class="price">from 30 TMT</div>
+            <div class="desc">Programming and university projects.</div>
+        </div>
 
-<div class="card">
+        <div class="card" onclick="chooseService('C# — from 30 TMT')">
+            <div class="icon cs">C#</div>
+            <h3>C#</h3>
+            <div class="price">from 30 TMT</div>
+            <div class="desc">C# programming projects.</div>
+        </div>
 
-    <div class="app-icon">
-        <i class="fa-solid fa-c"></i>
+        <div class="card" onclick="chooseService('Python — from 30 TMT')">
+            <div class="icon python">🐍</div>
+            <h3>Python</h3>
+            <div class="price">from 30 TMT</div>
+            <div class="desc">Python applications and tasks.</div>
+        </div>
+
+        <div class="card" onclick="chooseService('Microsoft Word — from 10 TMT')">
+            <div class="icon word">W</div>
+            <h3>Word</h3>
+            <div class="price">from 10 TMT</div>
+            <div class="desc">Documents, formatting and assignments.</div>
+        </div>
+
+        <div class="card" onclick="chooseService('Microsoft Excel — from 15 TMT')">
+            <div class="icon excel">X</div>
+            <h3>Excel</h3>
+            <div class="price">from 15 TMT</div>
+            <div class="desc">Tables, calculations and spreadsheets.</div>
+        </div>
+
+        <div class="card" onclick="chooseService('PowerPoint — 10 slides = 20 TMT')">
+            <div class="icon powerpoint">P</div>
+            <h3>PowerPoint</h3>
+            <div class="price">10 slides — 20 TMT</div>
+            <div class="desc">20 slides — 40 TMT</div>
+        </div>
+
+        <div class="card" onclick="chooseService('IT Support — from 20 TMT')">
+            <div class="icon it">IT</div>
+            <h3>IT Support</h3>
+            <div class="price">from 20 TMT</div>
+            <div class="desc">Computer and software assistance.</div>
+        </div>
+
     </div>
-
-    <h3>C / C++</h3>
-
-    <p>
-        Programmirleme boýunça kodlary
-        we okuw taslamalaryny taýýarlamak.
-    </p>
-
-</div>
-
-
-<!-- C# -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-solid fa-hashtag"></i>
-    </div>
-
-    <h3>C#</h3>
-
-    <p>
-        C# bilen programma we dürli kod
-        çözgütlerini taýýarlamak.
-    </p>
-
-</div>
-
-
-<!-- PYTHON -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-brands fa-python"></i>
-    </div>
-
-    <h3>Python</h3>
-
-    <p>
-        Python programmirleme we kiçi
-        awtomatlaşdyrma işleri.
-    </p>
-
-</div>
-
-
-<!-- WORD -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-solid fa-file-word"></i>
-    </div>
-
-    <h3>Microsoft Word</h3>
-
-    <p>
-        Dokumentler, referatlar, tablisalar
-        we tekst işleri.
-    </p>
-
-</div>
-
-
-<!-- POWERPOINT -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-solid fa-file-powerpoint"></i>
-    </div>
-
-    <h3>PowerPoint</h3>
-
-    <p>
-        Owadan we professional prezentasiýalar
-        taýýarlamak.
-    </p>
-
-</div>
-
-
-<!-- EXCEL -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-solid fa-file-excel"></i>
-    </div>
-
-    <h3>Microsoft Excel</h3>
-
-    <p>
-        Formulalar, maglumatlar we
-        professional tablisa işleri.
-    </p>
-
-</div>
-
-
-<!-- COMPUTER -->
-
-<div class="card">
-
-    <div class="app-icon">
-        <i class="fa-solid fa-laptop"></i>
-    </div>
-
-    <h3>Kompýuter hyzmatlary</h3>
-
-    <p>
-        Programma sazlamalary we
-        kompýuter boýunça tehniki kömek.
-    </p>
-
-</div>
-
-
-</div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
-
+<!-- ABOUT -->
 <section id="about">
 
-<h2 class="title">
-    Näme üçin <span>CODEVEX?</span>
-</h2>
+    <div class="title">
+        <h2>About CODEVEX</h2>
+        <p>Technology. Creativity. Solutions.</p>
+    </div>
 
-<div class="about">
+    <div class="about">
 
-<p>
+        <div class="box">
+            <h3>💻 What We Do</h3>
 
-CODEVEX — web development, programmirleme
-we sanly hyzmatlar boýunça döredilen kiçi
-IT hyzmat platformasydyr.
+            <p>
+                CODEVEX provides programming, website development,
+                presentations, documents, Excel solutions and IT support.
+                Our goal is to turn your ideas into useful digital solutions.
+            </p>
+        </div>
 
-Her bir sargyt üçin maksadymyz:
-<strong>ýönekeý, döwrebap we işleýän çözgüt.</strong>
+        <div class="box">
+            <h3>⚡ Why CODEVEX?</h3>
 
-</p>
+            <p>
+                Modern design, clean work and simple communication.
+                Send your project details and we will contact you by email.
+            </p>
+        </div>
 
-</div>
-
-</section>
-
-
-<!-- ================= ORDER ================= -->
-
-<section class="order" id="order">
-
-<h2 class="title">
-
-<span>Sargyt</span> etmek
-
-</h2>
-
-
-<div class="form">
-
-<input
-type="text"
-id="name"
-placeholder="Adyňyz"
->
-
-<input
-type="text"
-id="contact"
-placeholder="Telegram / Telefon"
->
-
-
-<select id="service">
-
-<option value="">
-Hyzmat saýlaň
-</option>
-
-<option>Web sahypa</option>
-
-<option>C / C++</option>
-
-<option>C#</option>
-
-<option>Python</option>
-
-<option>Microsoft Word</option>
-
-<option>PowerPoint</option>
-
-<option>Excel</option>
-
-<option>Kompýuter hyzmaty</option>
-
-<option>Beýleki</option>
-
-</select>
-
-
-<textarea
-id="message"
-placeholder="Näme gerekdigini düşündiriň..."
-></textarea>
-
-
-<button onclick="sendOrder()">
-
-<i class="fa-solid fa-paper-plane"></i>
-
- Sargydy ugrat
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- ORDER -->
+<section id="order">
 
-<section class="contact" id="contact">
+    <div class="title">
+        <h2>Place an Order</h2>
+        <p>Fill in the form and send your request.</p>
+    </div>
 
-<h2 class="title">
+    <div class="contact-box">
 
-<span>Habarlaş</span>
+        <!-- FORMSUBMIT -->
+        <form
+            class="form"
+            action="https://formsubmit.co/codevex.services@gmail.com"
+            method="POST"
+        >
 
-</h2>
+            <input
+                type="hidden"
+                name="_subject"
+                value="New CODEVEX Order"
+            >
 
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
 
-<p>
+            <input
+                type="hidden"
+                name="_template"
+                value="table"
+            >
 
-<i class="fa-brands fa-telegram"></i>
+            <input
+                type="text"
+                name="Name"
+                placeholder="Your name"
+                required
+            >
 
-Telegram:
+            <input
+                type="email"
+                name="Email"
+                placeholder="Your email"
+                required
+            >
 
-<a href="https://t.me/SENING_USERNAME">
+            <input
+                type="tel"
+                name="Phone"
+                placeholder="Phone / Telegram (optional)"
+            >
 
-@SENING_USERNAME
+            <select
+                name="Service"
+                id="serviceSelect"
+                required
+            >
 
-</a>
+                <option value="">Select a service</option>
 
-</p>
+                <option>HTML — from 20 TMT</option>
+                <option>CSS — from 20 TMT</option>
+                <option>JavaScript — from 30 TMT</option>
+                <option>C++ — from 30 TMT</option>
+                <option>C# — from 30 TMT</option>
+                <option>Python — from 30 TMT</option>
+                <option>Microsoft Word — from 10 TMT</option>
+                <option>Microsoft Excel — from 15 TMT</option>
+                <option>PowerPoint — 10 slides = 20 TMT</option>
+                <option>PowerPoint — 20 slides = 40 TMT</option>
+                <option>IT Support — from 20 TMT</option>
 
+            </select>
 
-<p>
+            <textarea
+                name="Project Details"
+                placeholder="Describe your project..."
+                required
+            ></textarea>
 
-<i class="fa-solid fa-envelope"></i>
+            <button class="submit" type="submit">
+                🚀 Send Order
+            </button>
 
-Email:
+        </form>
 
-<a href="mailto:sen@email.com">
-
-sen@email.com
-
-</a>
-
-</p>
-
-
-<div class="socials">
-
-<a href="#">
-<i class="fa-brands fa-telegram"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-instagram"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-github"></i>
-</a>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="title">
+        <h2>Contact</h2>
+        <p>Let's work together.</p>
+    </div>
+
+    <div class="contact">
+
+        <div class="contact-box">
+
+            <div class="gmail">
+
+                <div class="google-g">G</div>
+
+                <div>
+                    <h3>Gmail</h3>
+                    <p>codevex.services@gmail.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contact-box">
+
+            <h3>🚀 CODEVEX</h3>
+
+            <p>
+                Have a project idea?
+                Send us the details and we will get back to you.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <footer>
 
-© 2026 CODEVEX — Digital IT Services
+    © 2026 <span>CODEVEX</span> — All Rights Reserved.
 
 </footer>
 
 
 <script>
 
-function sendOrder(){
+function chooseService(service){
 
-    let name =
-    document.getElementById("name").value;
+    document.getElementById("serviceSelect").value = service;
 
-    let contact =
-    document.getElementById("contact").value;
-
-    let service =
-    document.getElementById("service").value;
-
-    let message =
-    document.getElementById("message").value;
-
-
-    if(
-        name === "" ||
-        contact === "" ||
-        service === "" ||
-        message === ""
-    ){
-
-        alert("Ähli ýerleri dolduryň!");
-
-        return;
-
-    }
-
-
-    alert(
-        "Sargydyňyz kabul edildi! 🚀\n\n" +
-        "Hyzmat: " + service +
-        "\n\nIndi ony Telegram-a birikdirip bileris."
-    );
+    document.getElementById("order").scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 </script>
-
 
 </body>
 </html>
