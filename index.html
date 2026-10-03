@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CodeVex Services</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M24 3L42 13.5V34.5L24 45L6 34.5V13.5Z' fill='%23101830' stroke='%23ffb454' stroke-width='3'/><path d='M19.5 16L24 33L28.5 16' fill='none' stroke='%233ddcc4' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <style>
 :root{--bg:#0d1220;--bg2:#141b2e;--tx:#e8ecf5;--mu:#93a0bd;--ac:#ffb454;--ac2:#3ddcc4;--ln:#25304d}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -88,6 +88,73 @@ textarea{min-height:120px;resize:vertical}
 .ppt .spin{transform-origin:center;transform-box:fill-box;animation:rot 9s linear infinite}
 @keyframes rot{to{transform:rotate(360deg)}}
 .ppt .cap{padding:0 12px 12px;font-size:.82rem;color:var(--mu);text-align:center}
+.prem{position:relative;border:1px solid #ffd27a;background:linear-gradient(160deg,#2a2210,#141b2e 60%);overflow:hidden}
+.prem::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,210,122,.28),transparent);transform:skewX(-20deg);animation:shine 3.4s infinite}
+@keyframes shine{to{left:130%}}
+.prem .crown{position:absolute;top:14px;right:16px;font-size:1.5rem;animation:bob 2.5s ease-in-out infinite}
+.prem h3{color:#ffd27a}
+.prem .v{font-size:2.4rem;font-weight:800;color:#ffd27a;margin:8px 0}
+.prem ul{list-style:none;color:var(--mu);font-size:.92rem;display:grid;gap:5px;margin-top:10px}
+.prem li::before{content:"✔ ";color:var(--ac2)}
+body{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:44px 44px}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:-1;opacity:.32;animation:drift 18s ease-in-out infinite alternate;pointer-events:none}
+.o1{width:420px;height:420px;background:#3b5bff;top:-100px;left:-100px}
+.o2{width:380px;height:380px;background:#ffb454;bottom:-120px;right:-80px;opacity:.2;animation-delay:-6s}
+@keyframes drift{to{transform:translate(120px,80px) scale(1.2)}}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:"Segoe UI",system-ui,sans-serif;font-weight:800;letter-spacing:.4px;font-size:1.3rem}
+.logo b{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mk{width:38px;height:38px;filter:drop-shadow(0 0 7px rgba(255,180,84,.55));transition:transform .7s}
+.logo:hover .mk{transform:rotate(360deg) scale(1.1)}
+.vx{stroke-dasharray:40;animation:draw 3.2s ease-in-out infinite}
+@keyframes draw{0%{stroke-dashoffset:40}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-40}}
+.emb{position:relative;width:104px;height:104px;margin-bottom:18px;animation:rise 1s both}
+.emb .mk{position:absolute;inset:18px;width:68px;height:68px}
+.emb .ring{position:absolute;inset:0;width:100%;height:100%;animation:rot 14s linear infinite}
+.hero h1{background:linear-gradient(90deg,#fff,var(--ac),var(--ac2),#fff);background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1s both,shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:250% center}}
+h2::after{width:70px;background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.card{position:relative;overflow:hidden;background:rgba(20,27,46,.78);backdrop-filter:blur(6px)}
+.card.prem{background:linear-gradient(160deg,#2a2210,#141b2e 60%)}
+.card::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--ac),var(--ac2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.card:hover::after{transform:scaleX(1)}
+.card .ic{width:58px;height:58px;display:grid;place-items:center;border-radius:15px;font-size:1.8rem;margin-bottom:14px;background:linear-gradient(135deg,rgba(255,180,84,.25),rgba(61,220,196,.25));border:1px solid var(--ln)}
+.btn{background:linear-gradient(135deg,#ffb454,#ff8a3d)}
+.term{box-shadow:0 0 0 1px rgba(61,220,196,.18),0 30px 80px rgba(61,220,196,.14)}
+.price .v{background:linear-gradient(90deg,var(--ac2),#7cf0dc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sbox{display:flex;align-items:center;gap:12px;background:rgba(20,27,46,.85);border:1px solid var(--ln);border-radius:50px;padding:4px 22px;max-width:660px;margin:0 auto 22px;transition:.3s}
+.sbox:focus-within{border-color:var(--ac);box-shadow:0 0 0 5px rgba(255,180,84,.14)}
+.sbox svg{width:22px;height:22px;flex:none}
+.sbox input{flex:1;background:none;border:0;padding:14px 0}
+.sbox input:focus{outline:none}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.ri{background:var(--bg2);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;animation:rise .5s both}
+.ri b{color:var(--ac2);white-space:nowrap}.ri a{color:var(--ac);font-size:.85rem;text-decoration:none}
+.tk{display:flex;align-items:center;gap:14px;background:var(--bg2);border:1px solid var(--ln);border-radius:14px;padding:12px 16px;margin-bottom:12px;transition:.3s}
+.tk.on{border-color:var(--ac2);box-shadow:0 0 24px rgba(61,220,196,.2)}
+.tk .cv{width:56px;height:56px;flex:none}.tk.on .cv{animation:rot 4s linear infinite}
+.tk .tn{flex:1;display:flex;align-items:center;font-weight:700}
+.tk button{border:0;border-radius:50px;cursor:pointer;font-weight:700;padding:10px 16px}
+.pb{background:var(--ac);color:#1a1200}.db{background:#222c4a;color:var(--tx)}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:16px;margin-left:12px;opacity:0}.tk.on .eq{opacity:1}
+.eq s{display:block;width:3px;height:100%;background:var(--ac2);transform-origin:bottom;animation:grow 1s ease-in-out infinite alternate}
+.eq s:nth-child(2){animation-delay:.2s}.eq s:nth-child(3){animation-delay:.4s}.eq s:nth-child(4){animation-delay:.6s}
+#ai{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#aib{width:66px;height:66px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(135deg,#3b5bff,#3ddcc4);display:grid;place-items:center;animation:pulse 2.6s infinite;transition:transform .2s}
+#aib:hover{transform:scale(1.1) rotate(-6deg)}#aib svg{width:42px;height:42px}
+#aip{width:min(350px,92vw);height:440px;background:#0b1020;border:1px solid var(--ln);border-radius:16px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#aip.open{display:flex;animation:rise .35s both}
+.ah{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#1c2a5c,#12303a);font-weight:800}
+.ah svg{width:36px;height:36px}.ah small{display:block;font-weight:400;color:var(--ac2);font-size:.72rem}
+.am{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.mb{max-width:86%;padding:9px 12px;border-radius:12px;font-size:.88rem;white-space:pre-line;animation:rise .3s both}
+.mb.b{background:#1a2342;align-self:flex-start}.mb.u{background:var(--ac);color:#1a1200;align-self:flex-end}
+.aq{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+.aq button{background:none;border:1px solid var(--ac2);color:var(--ac2);border-radius:20px;padding:4px 12px;cursor:pointer;font-size:.8rem}
+.aq button:hover{background:var(--ac2);color:#06231e}
+.af{display:flex;border-top:1px solid var(--ln)}.af input{flex:1;border:0;border-radius:0}
+.af button{background:var(--ac);border:0;padding:0 18px;cursor:pointer;font-size:1.1rem}
+.ey{transform-box:fill-box;transform-origin:center;animation:bl 4s infinite}
+@keyframes bl{94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
 footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid var(--ln);font-size:.9rem}
 @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:40px}section{padding:56px 5%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
@@ -96,12 +163,21 @@ footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid va
 </head>
 <body>
 <canvas id="bg"></canvas>
+<div class="orb o1"></div><div class="orb o2"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb454"/><stop offset="1" stop-color="#3ddcc4"/></linearGradient>
+<symbol id="mark" viewBox="0 0 48 48">
+<path d="M24 3L42 13.5V34.5L24 45L6 34.5V13.5Z" fill="#101830" stroke="url(#lg)" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M16 18L10 24L16 30M32 18L38 24L32 30" fill="none" stroke="#3ddcc4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="vx" pathLength="40" d="M19.5 16L24 33L28.5 16" fill="none" stroke="url(#lg)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol></defs></svg>
 <header>
-  <a class="logo" href="#top">&lt;Code<b>Vex</b>/&gt;</a>
+  <a class="logo" href="#top"><svg class="mk"><use href="#mark"/></svg><span>Code<b>Vex</b></span></a>
   <nav>
     <a href="#services" data-i="n1"></a>
     <a href="#prices" data-i="n2"></a>
     <a href="#langs" data-i="n3"></a>
+    <a href="#music" data-i="n5"></a>
     <a href="#order" data-i="n4"></a>
   </nav>
   <div class="lang">
@@ -111,6 +187,7 @@ footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid va
 
 <section class="hero" id="top">
   <div>
+    <div class="emb"><svg class="ring" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="57" stroke="#3ddcc4" stroke-width="1.5" stroke-dasharray="4 10" opacity=".7"/><circle cx="60" cy="60" r="49" stroke="#ffb454" stroke-width="2" stroke-dasharray="22 14" opacity=".6"/></svg><svg class="mk"><use href="#mark"/></svg></div>
     <h1 data-i="h1"></h1>
     <p data-i="h2"></p>
     <a href="#order" class="btn" data-i="hb"></a>
@@ -119,6 +196,11 @@ footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid va
     <div class="bar"><i></i><i></i><i></i></div>
     <pre id="code"></pre>
   </div>
+</section>
+
+<section id="search" style="padding-top:0;padding-bottom:20px">
+  <div class="sbox"><svg viewBox="0 0 24 24" fill="none" stroke="url(#lg)" stroke-width="2.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M16 16l5 5"/></svg><input id="q" data-ph="sh" autocomplete="off"></div>
+  <div class="res" id="res"></div>
 </section>
 
 <section id="services">
@@ -147,6 +229,27 @@ footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid va
     <div class="card price"><div class="n">20 <span data-i="sl"></span></div><div class="v">40</div><div class="n">manat</div></div>
   </div>
   <p class="note" style="margin-top:20px" data-i="pn"></p>
+</section>
+
+<section id="premium">
+  <h2>👑 Premium</h2>
+  <div class="grid">
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="p1t"></h3><div class="v">80 <small style="font-size:1rem">manat</small></div><ul><li data-i="pa"></li><li data-i="pb"></li><li data-i="pc"></li><li data-i="pd"></li></ul></div>
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="p2t"></h3><div class="v"><small style="font-size:1rem" data-i="fr"></small> 100 <small style="font-size:1rem">manat</small></div><ul><li data-i="pe"></li><li data-i="pf"></li><li data-i="pg"></li><li data-i="pd"></li></ul></div>
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="p3t"></h3><div class="v"><small style="font-size:1rem" data-i="fr"></small> 150 <small style="font-size:1rem">manat</small></div><ul><li data-i="ph"></li><li data-i="pi"></li><li data-i="pj"></li><li data-i="pd"></li></ul></div>
+  </div>
+</section>
+
+<section id="music">
+  <h2>🎧 <span data-i="mt"></span></h2>
+  <p class="note" data-i="md" style="margin:-18px 0 22px"></p>
+  <div id="trk"></div>
+  <div class="grid" style="margin-top:30px">
+    <div class="card prem"><span class="crown">🎁</span><h3 data-i="t1"></h3><div class="v">0 <small style="font-size:1rem">manat</small></div><ul><li data-i="pf1"></li><li data-i="pf2"></li><li data-i="pf3"></li></ul><button class="btn" id="trial" data-i="t4" style="margin-top:14px"></button><p class="note" id="tst" style="margin-top:8px"></p></div>
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="pl1"></h3><div class="v">15 <small style="font-size:1rem">manat</small></div><ul><li data-i="pf1"></li><li data-i="pf2"></li><li data-i="pf3"></li></ul><a class="btn" href="#order" data-plan="Premium Music — 1 month — 15 manat" data-i="so" style="margin-top:14px"></a></div>
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="pl2"></h3><div class="v">35 <small style="font-size:1rem">manat</small></div><ul><li data-i="pf1"></li><li data-i="pf2"></li><li data-i="pf3"></li></ul><a class="btn" href="#order" data-plan="Premium Music — 3 months — 35 manat" data-i="so" style="margin-top:14px"></a></div>
+    <div class="card prem"><span class="crown">👑</span><h3 data-i="pl3"></h3><div class="v">120 <small style="font-size:1rem">manat</small></div><ul><li data-i="pf1"></li><li data-i="pf2"></li><li data-i="pf3"></li></ul><a class="btn" href="#order" data-plan="Premium Music — 1 year — 120 manat" data-i="so" style="margin-top:14px"></a></div>
+  </div>
 </section>
 
 <section id="examples">
@@ -186,7 +289,7 @@ footer{text-align:center;padding:40px 5%;color:var(--mu);border-top:1px solid va
   </form>
 </section>
 
-<footer>© 2026 CodeVex Services · <a href="mailto:codevex.services@gmail.com" style="color:var(--ac2)">codevex.services@gmail.com</a></footer>
+<footer><a class="logo" href="#top" style="justify-content:center;margin-bottom:10px;text-decoration:none"><svg class="mk"><use href="#mark"/></svg><span>Code<b>Vex</b></span></a><br>© 2026 CodeVex Services · <a href="mailto:codevex.services@gmail.com" style="color:var(--ac2)">codevex.services@gmail.com</a></footer>
 
 <script>
 const T={
@@ -211,6 +314,11 @@ Object.assign(T.tk,{gt:"Prezentasiýa mysallary",g1:"Titul slaýdy",g2:"Diagramm
 Object.assign(T.ru,{gt:"Примеры презентаций",g1:"Титульный слайд",g2:"Слайд с диаграммой",g3:"Круговая диаграмма",g4:"Слайд со списком"});
 Object.assign(T.en,{gt:"Presentation examples",g1:"Title slide",g2:"Chart slide",g3:"Pie chart slide",g4:"List slide"});
 Object.assign(T.tr,{gt:"Sunum örnekleri",g1:"Başlık slaytı",g2:"Grafikli slayt",g3:"Pasta grafik slaytı",g4:"Liste slaytı"});
+Object.assign(T.tk,{fr:"-dan",p1t:"Premium prezentasiýa",pa:"20 slaýda çenli, ýeke-täk dizaýn",pb:"Çylşyrymly animasiýalar",pc:"Diagramma we infografika",pd:"24 sagatda taýýar + mugt düzediş",p2t:"Premium kod",pe:"Doly taslama (proýekt)",pf:"Düşündirişli arassa kod",pg:"Işleýşi barada kömek",p3t:"Premium web sahypa",ph:"Özüňize laýyk dizaýn",pi:"Telefona we kompýutere laýyk",pj:"Animasiýa we sargyt formasy"});
+Object.assign(T.ru,{fr:"от",p1t:"Премиум презентация",pa:"До 20 слайдов, уникальный дизайн",pb:"Сложные анимации",pc:"Диаграммы и инфографика",pd:"Готово за 24 часа + бесплатные правки",p2t:"Премиум код",pe:"Полноценный проект",pf:"Чистый код с комментариями",pg:"Помощь с запуском",p3t:"Премиум сайт",ph:"Индивидуальный дизайн",pi:"Адаптивен под телефон и ПК",pj:"Анимации и форма заказа"});
+Object.assign(T.en,{fr:"from",p1t:"Premium presentation",pa:"Up to 20 slides, unique design",pb:"Advanced animations",pc:"Charts and infographics",pd:"Ready in 24 hours + free revisions",p2t:"Premium code",pe:"Full project",pf:"Clean, commented code",pg:"Setup and usage support",p3t:"Premium website",ph:"Custom design",pi:"Mobile and desktop friendly",pj:"Animations and order form"});
+Object.assign(T.tr,{fr:"başlangıç",p1t:"Premium sunum",pa:"20 slayta kadar, özel tasarım",pb:"Gelişmiş animasyonlar",pc:"Grafik ve infografik",pd:"24 saatte hazır + ücretsiz düzeltme",p2t:"Premium kod",pe:"Tam proje",pf:"Açıklamalı temiz kod",pg:"Kurulum desteği",p3t:"Premium web sitesi",ph:"Kişiye özel tasarım",pi:"Telefon ve bilgisayar uyumlu",pj:"Animasyon ve sipariş formu"});
+document.querySelector('select[name=service]').insertAdjacentHTML("afterbegin",'<option>👑 Premium presentation — 80 manat</option><option>👑 Premium code — from 100 manat</option><option>👑 Premium website — from 150 manat</option>');
 function setLang(l){
   document.documentElement.lang=l;
   document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T[l][e.dataset.i]);
@@ -254,7 +362,7 @@ for(let i=0;i<28;i++)ps.push({x:Math.random()*2000,y:Math.random()*1200,t:sy[i%s
   ps.forEach(p=>{
     p.y-=p.v;if(p.y<-30){p.y=H+30;p.x=Math.random()*W}
     cx.font=p.z+"px Consolas,monospace";
-    cx.fillStyle="rgba(61,220,196,.35)";cx.fillText(p.t,p.x%W,p.y);
+    cx.fillStyle=p.z>20?"rgba(255,180,84,.28)":"rgba(61,220,196,.35)";cx.fillText(p.t,p.x%W,p.y);
   });
   requestAnimationFrame(draw);
 })();
@@ -269,6 +377,98 @@ const th=document.getElementById("thumbs"),mn=document.getElementById("main");le
 SL.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML=x;b.onclick=()=>{show(i);clearInterval(tm)};th.appendChild(b)});
 function show(i){cur=i;mn.innerHTML=SL[i];[...th.children].forEach((b,j)=>b.classList.toggle("on",j==i))}
 show(0);tm=setInterval(()=>show((cur+1)%SL.length),3500);
+</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bot" viewBox="0 0 48 48"><path d="M24 11V5" stroke="#fff" stroke-width="2"/><circle cx="24" cy="4.5" r="3" fill="#ffb454"/><rect x="8" y="11" width="32" height="26" rx="9" fill="#101830" stroke="#fff" stroke-width="2.5"/><circle class="ey" cx="18" cy="24" r="3.6" fill="#3ddcc4"/><circle class="ey" cx="30" cy="24" r="3.6" fill="#3ddcc4"/><path d="M18 31q6 4 12 0" stroke="#ffb454" stroke-width="2.5" fill="none" stroke-linecap="round"/><rect x="3" y="20" width="4" height="10" rx="2" fill="#fff"/><rect x="41" y="20" width="4" height="10" rx="2" fill="#fff"/><rect x="14" y="39" width="20" height="6" rx="3" fill="#3b5bff"/></symbol></svg>
+<div id="ai">
+  <div id="aip"><div class="ah"><svg><use href="#bot"/></svg><div>CodeAI<small>● online</small></div></div><div class="am" id="am"></div>
+  <div class="aq" id="aq"><button data-i="q1" data-q="q1" data-a="a5"></button><button data-i="q2" data-q="q2" data-a="a2"></button><button data-i="q3" data-q="q3" data-a="a7"></button></div>
+  <div class="af"><input id="ain" data-ph="aph"><button id="asend">➤</button></div></div>
+  <button id="aib" aria-label="CodeAI"><svg><use href="#bot"/></svg></button>
+</div>
+<script>
+Object.assign(T.tk,{n5:"Aýdym",sh:"Gerek zady ýazyň: prezentasiýa, python, word, aýdym…",sn:"Hiç zat tapylmady. CodeAI-dan soraň 🤖",so:"Sargyt et →",neg:"Ylalaşylýar",mt:"Aýdym diňle we ýükle",md:"Aýdymlary diňläň. Telefona ýüklemek Premium bilen — ilkinji 7 gün MUGT!",lk:"🔒 Premium",t1:"7 gün MUGT Premium",t4:"7 gün mugt başla",ts1:"👑 Premium işjeň: {n} gün galdy",ts2:"Synag möhleti gutardy. Plan saýlaň 👇",pl1:"1 aý",pl2:"3 aý",pl3:"1 ýyl",pf1:"Aýdymlary telefona ýüklemek",pf2:"Reklamasyz diňlemek",pf3:"Sargytlarda ileri tertip",a1:"Salam! Men CodeAI 🤖 Hyzmatlar, bahalar we aýdymlar barada soraň.",a2:"Sargyt etmek üçin aşakdaky formany dolduryň ýa-da codevex.services@gmail.com adresine ýazyň.",a3:"Habarlaşmak: codevex.services@gmail.com",a4:"Düşünmedim 😅 Prezentasiýa, kod, Word, aýdym ýa-da premium diýip ýazyň.",a5:"Prezentasiýa: 5 slaýd — 10, 10 slaýd — 20, 20 slaýd — 40 manat. Premium prezentasiýa — 80 manat. Kod we Word — ylalaşylýar.",a6:"Tapdym:",a7:"7 gün MUGT! Soň: 1 aý — 15, 3 aý — 35, 1 ýyl — 120 manat.",aph:"Ýazyň…",q1:"Bahalar",q2:"Nädip sargyt?",q3:"Premium"});
+Object.assign(T.ru,{n5:"Музыка",sh:"Что нужно: презентация, python, word, музыка…",sn:"Ничего не найдено. Спросите CodeAI 🤖",so:"Заказать →",neg:"Договорная",mt:"Слушай и скачивай музыку",md:"Слушайте музыку. Скачивание на телефон — с Premium, первые 7 дней БЕСПЛАТНО!",lk:"🔒 Premium",t1:"7 дней Premium БЕСПЛАТНО",t4:"Начать 7 дней бесплатно",ts1:"👑 Premium активен: осталось {n} дн.",ts2:"Пробный период закончился. Выберите план 👇",pl1:"1 месяц",pl2:"3 месяца",pl3:"1 год",pf1:"Скачивание музыки на телефон",pf2:"Прослушивание без рекламы",pf3:"Приоритет в заказах",a1:"Привет! Я CodeAI 🤖 Спросите про услуги, цены и музыку.",a2:"Чтобы заказать, заполните форму ниже или напишите на codevex.services@gmail.com.",a3:"Связь: codevex.services@gmail.com",a4:"Не понял 😅 Напишите: презентация, код, Word, музыка или premium.",a5:"Презентации: 5 слайдов — 10, 10 — 20, 20 — 40 манат. Premium презентация — 80 манат. Код и Word — договорная цена.",a6:"Нашёл:",a7:"7 дней БЕСПЛАТНО! Потом: 1 мес — 15, 3 мес — 35, 1 год — 120 манат.",aph:"Напишите…",q1:"Цены",q2:"Как заказать?",q3:"Premium"});
+Object.assign(T.en,{n5:"Music",sh:"What do you need: presentation, python, word, music…",sn:"Nothing found. Ask CodeAI 🤖",so:"Order →",neg:"Negotiable",mt:"Listen and download music",md:"Listen to music. Downloading to your phone needs Premium — first 7 days FREE!",lk:"🔒 Premium",t1:"7 days FREE Premium",t4:"Start 7 days free",ts1:"👑 Premium active: {n} days left",ts2:"Trial ended. Choose a plan 👇",pl1:"1 month",pl2:"3 months",pl3:"1 year",pf1:"Download music to your phone",pf2:"Ad-free listening",pf3:"Priority orders",a1:"Hi! I'm CodeAI 🤖 Ask me about services, prices and music.",a2:"To order, fill in the form below or email codevex.services@gmail.com.",a3:"Contact: codevex.services@gmail.com",a4:"Didn't get that 😅 Try: presentation, code, Word, music or premium.",a5:"Presentations: 5 slides — 10, 10 — 20, 20 — 40 manat. Premium presentation — 80 manat. Code and Word — negotiable.",a6:"Found:",a7:"7 days FREE! Then: 1 month — 15, 3 months — 35, 1 year — 120 manat.",aph:"Type here…",q1:"Prices",q2:"How to order?",q3:"Premium"});
+Object.assign(T.tr,{n5:"Müzik",sh:"Ne lazım: sunum, python, word, müzik…",sn:"Sonuç yok. CodeAI'ye sorun 🤖",so:"Sipariş ver →",neg:"Anlaşmalı",mt:"Müzik dinle ve indir",md:"Müzik dinleyin. Telefona indirmek Premium ile — ilk 7 gün ÜCRETSİZ!",lk:"🔒 Premium",t1:"7 gün ÜCRETSİZ Premium",t4:"7 gün ücretsiz başla",ts1:"👑 Premium aktif: {n} gün kaldı",ts2:"Deneme bitti. Bir plan seçin 👇",pl1:"1 ay",pl2:"3 ay",pl3:"1 yıl",pf1:"Müzikleri telefona indirme",pf2:"Reklamsız dinleme",pf3:"Siparişlerde öncelik",a1:"Merhaba! Ben CodeAI 🤖 Hizmetler, fiyatlar ve müzik hakkında sorun.",a2:"Sipariş için aşağıdaki formu doldurun veya codevex.services@gmail.com adresine yazın.",a3:"İletişim: codevex.services@gmail.com",a4:"Anlamadım 😅 Sunum, kod, Word, müzik veya premium yazın.",a5:"Sunum: 5 slayt — 10, 10 — 20, 20 — 40 manat. Premium sunum — 80 manat. Kod ve Word — anlaşmalı.",a6:"Buldum:",a7:"7 gün ÜCRETSİZ! Sonra: 1 ay — 15, 3 ay — 35, 1 yıl — 120 manat.",aph:"Yazın…",q1:"Fiyatlar",q2:"Nasıl sipariş?",q3:"Premium"});
+const $=id=>document.getElementById(id),lang=()=>document.documentElement.lang;
+const sel=document.querySelector("select[name=service]");
+sel.insertAdjacentHTML("beforeend",'<option>Premium Music — 1 month — 15 manat</option><option>Premium Music — 3 months — 35 manat</option><option>Premium Music — 1 year — 120 manat</option>');
+document.querySelectorAll("[data-plan]").forEach(a=>a.onclick=()=>sel.value=a.dataset.plan);
+
+/* ---- search + catalog (CodeAI uses it too) ---- */
+const PK="prezentasiya prezentasiýa presentation презентация sunum powerpoint ppt slide slayd слайд ",KC=" kod code код";
+const C=[
+{k:PK,t:"c1t",x:s=>"5 "+s.sl,p:"10 manat",o:"Presentation 5 slides — 10 manat"},
+{k:PK,t:"c1t",x:s=>"10 "+s.sl,p:"20 manat",o:"Presentation 10 slides — 20 manat"},
+{k:PK,t:"c1t",x:s=>"20 "+s.sl,p:"40 manat",o:"Presentation 20 slides — 40 manat"},
+{k:PK+"premium премиум",t:"p1t",p:"80 manat",o:"👑 Premium presentation — 80 manat"},
+{k:"python programma program py"+KC,t:"c2t",x:()=>"Python",p:s=>s.neg,o:"Code: Python"},
+{k:"c++ cpp"+KC,t:"c2t",x:()=>"C++",p:s=>s.neg,o:"Code: C++"},
+{k:"c# csharp"+KC,t:"c2t",x:()=>"C#",p:s=>s.neg,o:"Code: C#"},
+{k:"java"+KC,t:"c2t",x:()=>"Java",p:s=>s.neg,o:"Code: Java"},
+{k:"html web sayt sahypa site сайт website"+KC,t:"c4t",x:()=>"HTML",p:s=>s.neg,o:"Code: HTML"},
+{k:"word docx referat реферат ödev doklad kurs документ",t:"c3t",p:s=>s.neg,o:"Word"},
+{k:"premium премиум"+KC,t:"p2t",p:"100+ manat",o:"👑 Premium code — from 100 manat"},
+{k:"premium премиум web sayt sahypa site сайт website",t:"p3t",p:"150+ manat",o:"👑 Premium website — from 150 manat"},
+{k:"aydym aýdym music muzyka музыка müzik song mp3 download skacat скачать ýükle premium",t:"mt",p:"15 · 35 · 120 manat",o:"Premium Music — 1 month — 15 manat"}];
+const nm=(i,s)=>s[i.t]+(i.x?" · "+i.x(s):""),pr=(i,s)=>typeof i.p=="function"?i.p(s):i.p;
+const hit=(a,b)=>a==b||(a.length>2&&b.length>2&&(a.startsWith(b)||b.startsWith(a)));
+function find(q){const w=q.toLowerCase().split(/[\s,.;?!]+/).filter(x=>x.length>1);if(!w.length)return[];
+ return C.map(i=>({i,n:w.filter(t=>i.k.split(" ").some(k=>hit(k,t))).length})).filter(r=>r.n).sort((a,b)=>b.n-a.n).map(r=>r.i)}
+function show(){const s=T[lang()],q=$("q").value.trim(),r=$("res");r.innerHTML="";if(!q)return;const m=find(q);
+ if(!m.length){r.innerHTML='<p class="note">'+s.sn+'</p>';return}
+ m.forEach(i=>{const d=document.createElement("div");d.className="ri";d.innerHTML="<span>"+nm(i,s)+'<br><a href="#order">'+s.so+"</a></span><b>"+pr(i,s)+"</b>";d.querySelector("a").onclick=()=>{sel.value=i.o};r.append(d)})}
+$("q").oninput=show;
+
+/* ---- music: original generated tracks (add your own mp3 with url:"music/song.mp3") ---- */
+const TR=[{n:"Neon Night",bpm:96,root:57,sc:[0,3,5,7,10],w:"sawtooth",c:["#ffb454","#ff4d8d"]},{n:"Ocean Code",bpm:80,root:52,sc:[0,2,4,7,9],w:"sine",c:["#3ddcc4","#3b5bff"]},{n:"Desert Breeze",bpm:110,root:50,sc:[0,2,3,7,8],w:"triangle",c:["#f6d365","#fda085"]}];
+const mf=m=>440*2**((m-69)/12);
+function bus(c){const m=c.createGain();m.gain.value=.6;const d=c.createDelay(),f=c.createGain();d.delayTime.value=.28;f.gain.value=.35;m.connect(d);d.connect(f);f.connect(d);d.connect(c.destination);m.connect(c.destination);return m}
+function nt(c,o2,f,t,d,ty,v){const o=c.createOscillator(),g=c.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(o2);o.start(t);o.stop(t+d+.05)}
+function build(c,out,t,bars){let s=t.n.length*7919;const r=()=>(s=(s*1103515245+12345)&0x7fffffff)/0x7fffffff,b=60/t.bpm/2;
+ for(let i=0;i<bars*8;i++){const x=i*b+.05;if(r()>.25)nt(c,out,mf(t.root+12+t.sc[Math.floor(r()*5)]+(r()>.7?12:0)),x,b*1.8,t.w,.16);if(i%4==0)nt(c,out,mf(t.root-12+t.sc[(i>>2)%5]),x,b*3.5,"sine",.35)}
+ return bars*8*b+1.5}
+function wav(B){const d=B.getChannelData(0),n=d.length,v=new DataView(new ArrayBuffer(44+n*2)),w=(o,s)=>[...s].forEach((ch,i)=>v.setUint8(o+i,ch.charCodeAt(0)));
+ w(0,"RIFF");v.setUint32(4,36+n*2,true);w(8,"WAVEfmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,44100,true);v.setUint32(28,88200,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,"data");v.setUint32(40,n*2,true);
+ for(let i=0;i<n;i++)v.setInt16(44+i*2,Math.max(-1,Math.min(1,d[i]))*32767,true);return new Blob([v],{type:"audio/wav"})}
+const L=$("trk");let ctx=null,cur=-1,au=new Audio();
+function stop(){if(ctx){ctx.close();ctx=null}au.pause();cur=-1;[...L.children].forEach(r=>{r.classList.remove("on");r.querySelector(".pb").textContent="▶"})}
+function play(i){const was=cur;stop();if(was===i)return;cur=i;const t=TR[i],row=L.children[i];row.classList.add("on");row.querySelector(".pb").textContent="❚❚";
+ if(t.url){au.src=t.url;au.play();au.onended=stop}else{ctx=new(window.AudioContext||window.webkitAudioContext)();const d=build(ctx,bus(ctx),t,16);setTimeout(()=>{if(cur===i)stop()},d*1000)}}
+function dl(i){if(!prem()){$("trial").scrollIntoView({behavior:"smooth",block:"center"});return}const t=TR[i],a=document.createElement("a");
+ if(t.url){a.href=t.url;a.download=t.n;a.click();return}
+ const d=16*8*(60/t.bpm/2)+1.5,o=new OfflineAudioContext(1,Math.ceil(44100*d),44100);build(o,bus(o),t,16);
+ o.startRendering().then(B=>{a.href=URL.createObjectURL(wav(B));a.download=t.n+".wav";a.click()})}
+TR.forEach((t,i)=>{const r=document.createElement("div");r.className="tk";
+ r.innerHTML='<svg class="cv" viewBox="0 0 60 60"><defs><linearGradient id="cg'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t.c[0]+'"/><stop offset="1" stop-color="'+t.c[1]+'"/></linearGradient></defs><rect width="60" height="60" rx="14" fill="url(#cg'+i+')"/><circle cx="30" cy="30" r="17" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3"/><circle cx="30" cy="30" r="4" fill="#fff"/><path d="M8 50Q20 38 30 48T54 42" stroke="#fff" stroke-opacity=".5" fill="none" stroke-width="2"/></svg><div class="tn">'+t.n+'<i class="eq"><s></s><s></s><s></s><s></s></i></div><button class="pb" aria-label="play">▶</button><button class="db"></button>';
+ r.querySelector(".pb").onclick=()=>play(i);r.querySelector(".db").onclick=()=>dl(i);L.append(r)});
+
+/* ---- premium trial (7 days) ---- */
+const TD=6048e5,gs=()=>{try{return+localStorage.getItem("cv-trial")||0}catch(e){return 0}},prem=()=>{const s=gs();return s&&Date.now()<s+TD};
+function refresh(){const s=T[lang()],st=gs(),on=prem();
+ $("tst").textContent=on?s.ts1.replace("{n}",Math.ceil((st+TD-Date.now())/864e5)):st?s.ts2:"";
+ $("trial").disabled=!!st;$("trial").style.opacity=st?.5:1;
+ L.querySelectorAll(".db").forEach(b=>b.textContent=on?"⬇":s.lk)}
+$("trial").onclick=()=>{try{localStorage.setItem("cv-trial",Date.now())}catch(e){}refresh()};
+
+/* ---- CodeAI ---- */
+const M=$("am"),inp=$("ain");
+function say(w,t){const d=document.createElement("div");d.className="mb "+w;d.textContent=t;M.append(d);M.scrollTop=M.scrollHeight;return d}
+$("aib").onclick=()=>{$("aip").classList.toggle("open");if(!M.children.length)say("b",T[lang()].a1)};
+function ask(q){if(!q.trim())return;say("u",q);const s=T[lang()],x=q.toLowerCase(),m=find(x);let r;
+ if(/salam|привет|здравств|hello|merhaba|selam|\bhi\b/.test(x))r=s.a1;
+ else if(/sargyt|заказ|order|sipariş|nädip|как|how to/.test(x)&&!m.length)r=s.a2;
+ else if(/habarla|связ|контакт|contact|iletişim|mail|poçta|gmail|почт/.test(x))r=s.a3;
+ else if(m.length)r=s.a6+"\n"+m.slice(0,4).map(i=>"• "+nm(i,s)+" — "+pr(i,s)).join("\n");
+ else if(/baha|цен|price|fiyat|näçe|сколько|how much|kaç/.test(x))r=s.a5;else r=s.a4;
+ const t=say("b","…");setTimeout(()=>{t.textContent=r;M.scrollTop=M.scrollHeight},500)}
+inp.onkeydown=e=>{if(e.key=="Enter"){ask(inp.value);inp.value=""}};
+$("asend").onclick=()=>{ask(inp.value);inp.value=""};
+$("aq").querySelectorAll("button").forEach(b=>b.onclick=()=>{const s=T[lang()];say("u",s[b.dataset.q]);say("b",s[b.dataset.a])});
+
+const _s=setLang;
+setLang=function(l){_s(l);document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=T[l][e.dataset.ph]);refresh();show()};
+setLang(lang());
 </script>
 </body>
 </html>
