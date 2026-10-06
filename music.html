@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AÝDYMLY</title>
 
 <style>
@@ -14,18 +13,16 @@
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#06101d;
-    color:#fff;
+    font-family:Arial,sans-serif;
+    background:#050b14;
+    color:white;
     min-height:100vh;
 }
 
-/* HEADER */
-
 header{
     height:70px;
-    background:#0a1727;
-    border-bottom:1px solid #20364d;
+    background:#091522;
+    border-bottom:1px solid #1d344b;
     display:flex;
     align-items:center;
     gap:25px;
@@ -36,37 +33,25 @@ header{
 }
 
 .logo{
+    color:#35e5d0;
     font-size:25px;
     font-weight:bold;
-    color:#36e5cf;
-    white-space:nowrap;
 }
 
-.searchBox{
+.search{
     flex:1;
     max-width:600px;
-    position:relative;
 }
 
-.searchBox input{
+.search input{
     width:100%;
-    background:#101f31;
-    border:1px solid #29445c;
+    padding:13px 20px;
+    border-radius:25px;
+    border:1px solid #284159;
+    background:#101d2c;
     color:white;
     outline:none;
-    border-radius:25px;
-    padding:13px 20px 13px 45px;
-    font-size:14px;
 }
-
-.searchIcon{
-    position:absolute;
-    left:17px;
-    top:12px;
-    color:#8da5ba;
-}
-
-/* MAIN */
 
 main{
     padding:25px;
@@ -74,33 +59,26 @@ main{
 }
 
 .hero{
-    min-height:230px;
+    padding:40px;
+    min-height:220px;
     border-radius:22px;
-    padding:35px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
     background:
-        radial-gradient(circle at 80% 20%,#18546b55,transparent 35%),
-        linear-gradient(135deg,#0d2943,#102d45,#092033);
-    border:1px solid #21415c;
+    radial-gradient(circle at 80% 20%,#155c7060,transparent 35%),
+    linear-gradient(135deg,#0b2740,#0d2032);
+    border:1px solid #203e57;
     margin-bottom:30px;
 }
 
 .hero h1{
-    font-size:40px;
+    font-size:38px;
     margin-bottom:12px;
 }
 
 .hero p{
-    color:#9db3c6;
-    font-size:16px;
+    color:#9eb2c4;
 }
 
-/* GENRES */
-
-.sectionTitle{
-    font-size:22px;
+h2{
     margin-bottom:15px;
 }
 
@@ -108,115 +86,82 @@ main{
     display:flex;
     gap:10px;
     overflow-x:auto;
-    padding-bottom:10px;
     margin-bottom:30px;
 }
 
-.genres::-webkit-scrollbar{
-    height:4px;
-}
-
 .genre{
-    background:#0d2034;
-    border:1px solid #24425c;
-    color:#b8cada;
+    border:1px solid #25435c;
+    background:#0d1d2e;
+    color:#b7c9d9;
     padding:10px 18px;
     border-radius:25px;
     white-space:nowrap;
     cursor:pointer;
-    transition:.2s;
 }
 
-.genre:hover,
-.genre.active{
-    background:#36e5cf;
-    color:#06101d;
-    border-color:#36e5cf;
+.genre.active,
+.genre:hover{
+    background:#35e5d0;
+    color:#06101b;
 }
 
-/* SONGS */
-
-.songGrid{
+.songs{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fill,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
     gap:20px;
 }
 
-.songCard{
-    background:#0b1a2b;
-    border:1px solid #1d354b;
+.song{
+    background:#0a1726;
+    border:1px solid #1b3349;
     border-radius:17px;
-    padding:12px;
+    padding:10px;
     cursor:pointer;
     transition:.25s;
-    position:relative;
 }
 
-.songCard:hover{
+.song:hover{
     transform:translateY(-5px);
-    border-color:#36e5cf;
-    box-shadow:0 10px 30px #0007;
+    border-color:#35e5d0;
 }
 
-.coverBox{
+.cover{
     width:100%;
-    aspect-ratio:1/1;
+    aspect-ratio:1;
     border-radius:13px;
-    overflow:hidden;
-    background:#14283b;
-    position:relative;
-}
-
-.coverBox img{
-    width:100%;
-    height:100%;
     object-fit:cover;
+    background:#14283a;
 }
 
-.cardPlay{
-    position:absolute;
-    right:10px;
-    bottom:10px;
-    width:45px;
-    height:45px;
+.song h3{
+    margin-top:11px;
+    font-size:16px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.song p{
+    margin-top:5px;
+    color:#8ea6ba;
+    font-size:13px;
+}
+
+.play{
+    width:43px;
+    height:43px;
+    border:0;
     border-radius:50%;
-    border:none;
-    background:#36e5cf;
-    color:#06101d;
+    background:#35e5d0;
+    color:#06101b;
     font-size:18px;
     cursor:pointer;
-    opacity:0;
-    transform:translateY(5px);
-    transition:.2s;
-}
-
-.songCard:hover .cardPlay{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.songTitle{
-    margin-top:12px;
-    font-size:16px;
-    font-weight:bold;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-
-.songArtist{
-    margin-top:6px;
-    color:#8fa7bb;
-    font-size:13px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    margin-top:10px;
 }
 
 .empty{
-    color:#8fa7bb;
-    padding:30px 0;
+    color:#8fa6ba;
+    padding:25px 0;
 }
 
 /* PLAYER */
@@ -226,13 +171,13 @@ main{
     left:0;
     right:0;
     bottom:0;
-    height:95px;
-    background:#091725ee;
+    height:100px;
+    background:#091522f5;
     backdrop-filter:blur(15px);
-    border-top:1px solid #29445d;
+    border-top:1px solid #29435a;
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:14px;
     padding:10px 20px;
     z-index:100;
 }
@@ -242,85 +187,70 @@ main{
     height:65px;
     border-radius:10px;
     object-fit:cover;
-    background:#14283b;
+    background:#14283a;
 }
 
-.playerInfo{
-    width:190px;
-    min-width:120px;
+.info{
+    width:180px;
+    min-width:100px;
 }
 
-.playerTitle{
+.title{
     font-weight:bold;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
 }
 
-.playerArtist{
-    color:#8fa7bb;
+.artist{
+    color:#8da5b9;
     font-size:13px;
     margin-top:5px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 }
 
-.playerControls{
+.controls{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
 }
 
-.control{
+.btn{
     width:40px;
     height:40px;
-    border:none;
     border-radius:50%;
-    background:#12273b;
+    border:0;
+    background:#14283a;
     color:white;
     cursor:pointer;
     font-size:16px;
 }
 
-.control:hover{
-    background:#1d3a53;
+.mainBtn{
+    background:#35e5d0;
+    color:#06101b;
 }
 
-.mainPlay{
-    background:#36e5cf;
-    color:#06101d;
-    font-size:18px;
-}
-
-.progressArea{
+.progressBox{
     flex:1;
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
 }
 
 .progress{
     width:100%;
-    accent-color:#36e5cf;
-    cursor:pointer;
+    accent-color:#35e5d0;
 }
 
 .time{
-    color:#8fa7bb;
-    font-size:12px;
+    color:#8da5b9;
+    font-size:11px;
     white-space:nowrap;
-}
-
-.volumeArea{
-    display:flex;
-    align-items:center;
-    gap:7px;
 }
 
 .volume{
     width:90px;
-    accent-color:#36e5cf;
+    accent-color:#35e5d0;
 }
 
 /* MOBILE */
@@ -328,17 +258,12 @@ main{
 @media(max-width:700px){
 
     header{
-        height:65px;
         padding:0 12px;
         gap:12px;
     }
 
     .logo{
-        font-size:20px;
-    }
-
-    .searchBox{
-        max-width:none;
+        font-size:19px;
     }
 
     main{
@@ -347,7 +272,6 @@ main{
     }
 
     .hero{
-        min-height:190px;
         padding:25px;
     }
 
@@ -355,31 +279,19 @@ main{
         font-size:28px;
     }
 
-    .hero p{
-        font-size:14px;
-    }
-
-    .songGrid{
+    .songs{
         grid-template-columns:repeat(2,1fr);
         gap:12px;
     }
 
-    .songCard{
-        padding:9px;
-    }
-
-    .cardPlay{
-        opacity:1;
-        transform:none;
-        width:38px;
-        height:38px;
+    .song{
+        padding:8px;
     }
 
     .player{
         height:105px;
         padding:8px 10px;
-        gap:8px;
-        flex-wrap:wrap;
+        gap:7px;
     }
 
     .playerCover{
@@ -387,135 +299,118 @@ main{
         height:48px;
     }
 
-    .playerInfo{
-        width:100px;
-        min-width:80px;
+    .info{
+        width:95px;
+        min-width:75px;
     }
 
-    .playerControls{
-        gap:4px;
+    .btn{
+        width:35px;
+        height:35px;
     }
 
-    .control{
-        width:36px;
-        height:36px;
+    .volume{
+        display:none;
     }
 
-    .progressArea{
+    .progressBox{
         position:absolute;
         left:10px;
         right:10px;
         bottom:4px;
     }
-
-    .volumeArea{
-        display:none;
-    }
-
-    .time{
-        font-size:10px;
-    }
 }
 </style>
 </head>
-
 
 <body>
 
 <header>
 
-    <div class="logo">
-        AÝDYMLY
-    </div>
+<div class="logo">
+AÝDYMLY
+</div>
 
-    <div class="searchBox">
-
-        <span class="searchIcon">🔎</span>
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Aýdym ýa-da aýdymçy gözle..."
-        >
-
-    </div>
+<div class="search">
+<input
+id="search"
+type="text"
+placeholder="Aýdym ýa-da aýdymçy gözle..."
+>
+</div>
 
 </header>
 
 
 <main>
 
-    <section class="hero">
+<section class="hero">
 
-        <h1>Aýdymyňy saýla 🎵</h1>
+<h1>
+Aýdymyňy saýla 🎵
+</h1>
 
-        <p>
-            Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
-        </p>
+<p>
+Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
+</p>
 
-    </section>
-
-
-    <h2 class="sectionTitle">
-        Žanrlar
-    </h2>
+</section>
 
 
-    <div class="genres">
+<h2>Žanrlar</h2>
 
-        <button
-            class="genre active"
-            onclick="filterGenre('all',this)">
-            Hemmesi
-        </button>
+<div class="genres">
 
-        <button
-            class="genre"
-            onclick="filterGenre('pop',this)">
-            Pop
-        </button>
+<button
+class="genre active"
+onclick="filterGenre('all',this)">
+Hemmesi
+</button>
 
-        <button
-            class="genre"
-            onclick="filterGenre('rap',this)">
-            Rap
-        </button>
+<button
+class="genre"
+onclick="filterGenre('pop',this)">
+Pop
+</button>
 
-        <button
-            class="genre"
-            onclick="filterGenre('phonk',this)">
-            Phonk
-        </button>
+<button
+class="genre"
+onclick="filterGenre('rap',this)">
+Rap
+</button>
 
-        <button
-            class="genre"
-            onclick="filterGenre('funk',this)">
-            Funk
-        </button>
+<button
+class="genre"
+onclick="filterGenre('phonk',this)">
+Phonk
+</button>
 
-        <button
-            class="genre"
-            onclick="filterGenre('turkmen',this)">
-            Türkmen
-        </button>
+<button
+class="genre"
+onclick="filterGenre('funk',this)">
+Funk
+</button>
 
-    </div>
+<button
+class="genre"
+onclick="filterGenre('turkmen',this)">
+Türkmen
+</button>
 
-
-    <h2 class="sectionTitle">
-        Aýdymlar
-    </h2>
+</div>
 
 
-    <div
-        id="songGrid"
-        class="songGrid">
+<h2>Aýdymlar</h2>
 
-        <div class="empty">
-            Aýdymlar ýüklenýär...
-        </div>
+<div
+id="songs"
+class="songs">
 
-    </div>
+<div class="empty">
+Aýdymlar ýüklenýär...
+</div>
+
+</div>
 
 </main>
 
@@ -524,122 +419,106 @@ main{
 
 <div class="player">
 
-    <img
-        id="playerCover"
-        class="playerCover"
-        src=""
-        alt="Cover"
-    >
+<img
+id="playerCover"
+class="playerCover"
+alt="Cover"
+>
+
+<div class="info">
+
+<div
+id="playerTitle"
+class="title">
+Aýdym saýla
+</div>
+
+<div
+id="playerArtist"
+class="artist">
+—
+</div>
+
+</div>
 
 
-    <div class="playerInfo">
+<div class="controls">
 
-        <div
-            id="playerTitle"
-            class="playerTitle">
-            Aýdym saýla
-        </div>
+<button
+class="btn"
+onclick="previousSong()">
+⏮
+</button>
 
-        <div
-            id="playerArtist"
-            class="playerArtist">
-            —
-        </div>
+<button
+id="playButton"
+class="btn mainBtn"
+onclick="togglePlay()">
+▶
+</button>
 
-    </div>
+<button
+class="btn"
+onclick="nextSong()">
+⏭
+</button>
 
-
-    <div class="playerControls">
-
-        <button
-            class="control"
-            onclick="previousSong()">
-            ⏮
-        </button>
-
-        <button
-            id="playButton"
-            class="control mainPlay"
-            onclick="togglePlay()">
-            ▶
-        </button>
-
-        <button
-            class="control"
-            onclick="nextSong()">
-            ⏭
-        </button>
-
-    </div>
+</div>
 
 
-    <div class="progressArea">
+<div class="progressBox">
 
-        <span
-            id="currentTime"
-            class="time">
-            0:00
-        </span>
+<span
+id="currentTime"
+class="time">
+0:00
+</span>
 
-        <input
-            id="progress"
-            class="progress"
-            type="range"
-            min="0"
-            max="100"
-            value="0"
-            step="0.1"
-            oninput="seekSong()"
-        >
+<input
+id="progress"
+class="progress"
+type="range"
+min="0"
+max="100"
+value="0"
+step="0.1"
+>
 
-        <span
-            id="duration"
-            class="time">
-            0:00
-        </span>
+<span
+id="duration"
+class="time">
+0:00
+</span>
 
-    </div>
+</div>
 
 
-    <div class="volumeArea">
-
-        <button
-            id="muteButton"
-            class="control"
-            onclick="toggleMute()">
-            🔊
-        </button>
-
-        <input
-            id="volume"
-            class="volume"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1"
-            oninput="changeVolume()"
-        >
-
-    </div>
+<input
+id="volume"
+class="volume"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value="1"
+>
 
 </div>
 
 
 <audio
-    id="audio"
-    preload="metadata">
+id="audio"
+preload="metadata">
 </audio>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <script>
 
-/* =========================
+/* ==============================
    SUPABASE
-========================= */
+============================== */
 
 const SUPABASE_URL =
 "https://ievywgyevceodiwgymce.supabase.co";
@@ -654,18 +533,30 @@ supabase.createClient(
 );
 
 
-/* =========================
+/* ==============================
+   DUNYÄ MP3
+   GÖNI URL
+============================== */
+
+const DUNYA_AUDIO =
+"https://ievywgyevceodiwgymce.supabase.co/storage/v1/object/public/songs/Dunya.mp3";
+
+const DUNYA_COVER =
+"https://ievywgyevceodiwgymce.supabase.co/storage/v1/object/public/songs/Dunya.jpg";
+
+
+/* ==============================
    ELEMENTS
-========================= */
+============================== */
 
 const audio =
 document.getElementById("audio");
 
-const songGrid =
-document.getElementById("songGrid");
+const songsBox =
+document.getElementById("songs");
 
-const searchInput =
-document.getElementById("searchInput");
+const search =
+document.getElementById("search");
 
 const playerCover =
 document.getElementById("playerCover");
@@ -691,13 +582,10 @@ document.getElementById("duration");
 const volume =
 document.getElementById("volume");
 
-const muteButton =
-document.getElementById("muteButton");
 
-
-/* =========================
+/* ==============================
    VARIABLES
-========================= */
+============================== */
 
 let songs = [];
 
@@ -705,791 +593,730 @@ let filteredSongs = [];
 
 let currentIndex = -1;
 
-let currentGenre = "all";
 
-let oldVolume = 1;
-
-
-/* =========================
-   LOAD SONGS
-========================= */
+/* ==============================
+   LOAD SUPABASE
+============================== */
 
 async function loadSongs(){
 
-    try{
-
-        const result =
-        await db
-        .from("Songs")
-        .select("*")
-        .order("id",{ascending:true});
+const result =
+await db
+.from("Songs")
+.select("*")
+.order("id",{ascending:true});
 
 
-        if(result.error){
+if(result.error){
 
-            console.error(result.error);
+console.error(result.error);
 
-            songGrid.innerHTML =
-            `
-            <div class="empty">
-                Aýdymlary ýüklemekde ýalňyşlyk boldy.
-            </div>
-            `;
+songsBox.innerHTML =
+`
+<div class="empty">
+Aýdymlary ýüklemekde ýalňyşlyk boldy.
+</div>
+`;
 
-            return;
-        }
+return;
+}
 
 
-        songs =
-        result.data || [];
+songs =
+result.data || [];
 
-        filteredSongs =
-        [...songs];
 
-        renderSongs();
+/*
+   Eger Supabase-den ses_url gelmese-de,
+   Dünýä üçin göni URL ulanýarys.
+*/
 
-    }
-    catch(error){
+songs = songs.map(song => {
 
-        console.error(error);
+if(
+(song.title === "Dünýä") ||
+(song.başlık === "Dünýä")
+){
 
-        songGrid.innerHTML =
-        `
-        <div class="empty">
-            Baglanyşyk ýalňyşlygy.
-        </div>
-        `;
+song.ses_url =
+DUNYA_AUDIO;
 
-    }
+song.kapak_url =
+song.kapak_url ||
+DUNYA_COVER;
+
+}
+
+return song;
+
+});
+
+
+filteredSongs =
+[...songs];
+
+renderSongs();
 
 }
 
 
-/* =========================
-   GET COLUMN
-========================= */
+/* ==============================
+   DATA
+============================== */
 
-function getTitle(song){
+function titleOf(song){
 
-    return (
-        song.title ||
-        song.başlık ||
-        "Näbelli aýdym"
-    );
-
-}
-
-
-function getArtist(song){
-
-    return (
-        song.artist ||
-        song.sanatçı ||
-        "Näbelli aýdymçy"
-    );
+return (
+song.title ||
+song.başlık ||
+"Dünýä"
+);
 
 }
 
 
-function getAudio(song){
+function artistOf(song){
 
-    return (
-        song.ses_url ||
-        song.audio_url ||
-        ""
-    );
-
-}
-
-
-function getCover(song){
-
-    return (
-        song.kapak_url ||
-        song.cover_url ||
-        ""
-    );
+return (
+song.artist ||
+song.sanatçı ||
+"Hemra Rejepow"
+);
 
 }
 
 
-function getGenre(song){
+function audioOf(song){
 
-    return (
-        song.genre ||
-        song.žanr ||
-        ""
-    ).toString().toLowerCase();
+/*
+   Iň möhüm ýer.
+*/
+
+if(
+song.ses_url &&
+song.ses_url.trim() !== ""
+){
+
+return song.ses_url;
 
 }
 
 
-/* =========================
-   RENDER SONGS
-========================= */
+/*
+   audio_url hem bar bolsa
+*/
+
+if(
+song.audio_url &&
+song.audio_url.trim() !== ""
+){
+
+return song.audio_url;
+
+}
+
+
+/*
+   Dünýä üçin göni MP3
+*/
+
+if(
+titleOf(song) === "Dünýä"
+){
+
+return DUNYA_AUDIO;
+
+}
+
+
+return "";
+
+}
+
+
+function coverOf(song){
+
+if(
+song.kapak_url &&
+song.kapak_url.trim() !== ""
+){
+
+return song.kapak_url;
+
+}
+
+if(
+song.cover_url &&
+song.cover_url.trim() !== ""
+){
+
+return song.cover_url;
+
+}
+
+if(
+titleOf(song) === "Dünýä"
+){
+
+return DUNYA_COVER;
+
+}
+
+return "";
+
+}
+
+
+/* ==============================
+   RENDER
+============================== */
 
 function renderSongs(){
 
-    if(filteredSongs.length === 0){
-
-        songGrid.innerHTML =
-        `
-        <div class="empty">
-            Aýdym tapylmady.
-        </div>
-        `;
-
-        return;
-    }
+songsBox.innerHTML = "";
 
 
-    songGrid.innerHTML = "";
+if(filteredSongs.length === 0){
+
+songsBox.innerHTML =
+`
+<div class="empty">
+Aýdym tapylmady.
+</div>
+`;
+
+return;
+}
 
 
-    filteredSongs.forEach(song=>{
+filteredSongs.forEach(song => {
 
-        const realIndex =
-        songs.indexOf(song);
+const index =
+songs.indexOf(song);
 
-        const title =
-        getTitle(song);
+const card =
+document.createElement("div");
 
-        const artist =
-        getArtist(song);
-
-        const cover =
-        getCover(song);
+card.className =
+"song";
 
 
-        const card =
-        document.createElement("div");
+const cover =
+document.createElement("img");
 
-        card.className =
-        "songCard";
+cover.className =
+"cover";
 
+cover.src =
+coverOf(song);
 
-        const coverBox =
-        document.createElement("div");
-
-        coverBox.className =
-        "coverBox";
-
-
-        if(cover){
-
-            const img =
-            document.createElement("img");
-
-            img.src = cover;
-
-            img.alt = title;
-
-            coverBox.appendChild(img);
-
-        }
+cover.alt =
+titleOf(song);
 
 
-        const button =
-        document.createElement("button");
+const title =
+document.createElement("h3");
 
-        button.className =
-        "cardPlay";
-
-        button.textContent =
-        "▶";
+title.textContent =
+titleOf(song);
 
 
-        button.onclick =
-        function(event){
+const artist =
+document.createElement("p");
 
-            event.stopPropagation();
-
-            selectSong(realIndex);
-
-        };
+artist.textContent =
+artistOf(song);
 
 
-        coverBox.appendChild(button);
+const button =
+document.createElement("button");
+
+button.className =
+"play";
+
+button.textContent =
+"▶";
 
 
-        const titleElement =
-        document.createElement("div");
+button.onclick =
+function(e){
 
-        titleElement.className =
-        "songTitle";
+e.stopPropagation();
 
-        titleElement.textContent =
-        title;
+selectSong(index);
 
-
-        const artistElement =
-        document.createElement("div");
-
-        artistElement.className =
-        "songArtist";
-
-        artistElement.textContent =
-        artist;
+};
 
 
-        card.appendChild(coverBox);
+card.onclick =
+function(){
 
-        card.appendChild(titleElement);
+selectSong(index);
 
-        card.appendChild(artistElement);
-
-
-        card.onclick =
-        function(){
-
-            selectSong(realIndex);
-
-        };
+};
 
 
-        songGrid.appendChild(card);
+card.appendChild(cover);
 
-    });
+card.appendChild(title);
+
+card.appendChild(artist);
+
+card.appendChild(button);
+
+songsBox.appendChild(card);
+
+});
 
 }
 
 
-/* =========================
+/* ==============================
    SELECT SONG
-========================= */
+============================== */
 
 function selectSong(index){
 
-    if(!songs[index]){
-        return;
-    }
+const song =
+songs[index];
+
+if(!song){
+return;
+}
 
 
-    currentIndex =
-    index;
+currentIndex =
+index;
 
 
-    const song =
-    songs[index];
+const title =
+titleOf(song);
+
+const artist =
+artistOf(song);
+
+const mp3 =
+audioOf(song);
+
+const cover =
+coverOf(song);
 
 
-    const title =
-    getTitle(song);
+playerTitle.textContent =
+title;
 
-    const artist =
-    getArtist(song);
-
-    const audioURL =
-    getAudio(song);
-
-    const coverURL =
-    getCover(song);
+playerArtist.textContent =
+artist;
 
 
-    playerTitle.textContent =
-    title;
+if(cover){
 
-    playerArtist.textContent =
-    artist;
-
-
-    if(coverURL){
-
-        playerCover.src =
-        coverURL;
-
-    }
-    else{
-
-        playerCover.removeAttribute("src");
-
-    }
-
-
-    if(!audioURL){
-
-        alert(
-            "Bu aýdymyň ses URL-si ýok."
-        );
-
-        return;
-    }
-
-
-    /*
-       Täze aýdym saýlananda
-       öňki aýdymyň ýerine täze MP3 goýulýar.
-    */
-
-    audio.pause();
-
-    audio.src =
-    audioURL;
-
-    audio.load();
-
-
-    /*
-       Useriň basmagy bilen
-       play() edilýär.
-    */
-
-    const playPromise =
-    audio.play();
-
-
-    if(playPromise !== undefined){
-
-        playPromise
-        .then(()=>{
-
-            playButton.textContent =
-            "⏸";
-
-        })
-        .catch(error=>{
-
-            console.log(
-                "Play error:",
-                error
-            );
-
-            playButton.textContent =
-            "▶";
-
-        });
-
-    }
+playerCover.src =
+cover;
 
 }
 
 
-/* =========================
+/*
+   MP3-ni göni audio elementine berýäris.
+*/
+
+if(!mp3){
+
+alert(
+"Aýdymyň MP3 URL-si tapylmady."
+);
+
+return;
+
+}
+
+
+audio.pause();
+
+audio.removeAttribute("src");
+
+audio.load();
+
+audio.src =
+mp3;
+
+audio.load();
+
+
+/*
+   Telefon ulanyjy basandygy üçin
+   play() işlemeli.
+*/
+
+audio.play()
+.then(function(){
+
+playButton.textContent =
+"⏸";
+
+})
+.catch(function(error){
+
+console.error(
+"Audio play error:",
+error
+);
+
+playButton.textContent =
+"▶";
+
+});
+
+}
+
+
+/* ==============================
    PLAY / PAUSE
-========================= */
+============================== */
 
 function togglePlay(){
 
-    if(!audio.src){
+if(!audio.src){
 
-        if(songs.length > 0){
+if(songs.length > 0){
 
-            selectSong(0);
+selectSong(
+currentIndex >= 0
+? currentIndex
+: 0
+);
 
-        }
+}
 
-        return;
-    }
-
-
-    if(audio.paused){
-
-        audio.play()
-        .then(()=>{
-
-            playButton.textContent =
-            "⏸";
-
-        })
-        .catch(error=>{
-
-            console.log(error);
-
-        });
-
-    }
-    else{
-
-        audio.pause();
-
-        playButton.textContent =
-        "▶";
-
-    }
+return;
 
 }
 
 
-/* =========================
+if(audio.paused){
+
+audio.play()
+.then(function(){
+
+playButton.textContent =
+"⏸";
+
+});
+
+}
+else{
+
+audio.pause();
+
+playButton.textContent =
+"▶";
+
+}
+
+}
+
+
+/* ==============================
    NEXT
-========================= */
+============================== */
 
 function nextSong(){
 
-    if(songs.length === 0){
-        return;
-    }
+if(songs.length === 0){
+return;
+}
 
 
-    let next =
-    currentIndex + 1;
+let next =
+currentIndex + 1;
 
 
-    if(next >= songs.length){
+if(next >= songs.length){
 
-        next = 0;
-
-    }
-
-
-    selectSong(next);
+next = 0;
 
 }
 
 
-/* =========================
+selectSong(next);
+
+}
+
+
+/* ==============================
    PREVIOUS
-========================= */
+============================== */
 
 function previousSong(){
 
-    if(songs.length === 0){
-        return;
-    }
+if(songs.length === 0){
+return;
+}
 
 
-    let previous =
-    currentIndex - 1;
+let previous =
+currentIndex - 1;
 
 
-    if(previous < 0){
+if(previous < 0){
 
-        previous =
-        songs.length - 1;
-
-    }
-
-
-    selectSong(previous);
+previous =
+songs.length - 1;
 
 }
 
 
-/* =========================
+selectSong(previous);
+
+}
+
+
+/* ==============================
    AUTO NEXT
-========================= */
+============================== */
 
 audio.addEventListener(
-    "ended",
-    function(){
+"ended",
+function(){
 
-        nextSong();
+nextSong();
 
-    }
+}
 );
 
 
-/* =========================
-   TIME
-========================= */
+/* ==============================
+   AUDIO EVENTS
+============================== */
 
 audio.addEventListener(
-    "loadedmetadata",
-    function(){
+"loadedmetadata",
+function(){
 
-        duration.textContent =
-        formatTime(audio.duration);
+duration.textContent =
+formatTime(audio.duration);
 
-    }
+});
+
+
+audio.addEventListener(
+"timeupdate",
+function(){
+
+if(!audio.duration){
+return;
+}
+
+
+progress.value =
+(audio.currentTime /
+audio.duration) * 100;
+
+
+currentTime.textContent =
+formatTime(
+audio.currentTime
 );
 
 
-audio.addEventListener(
-    "timeupdate",
-    function(){
-
-        if(!audio.duration){
-            return;
-        }
-
-
-        const percent =
-        (audio.currentTime /
-        audio.duration) * 100;
-
-
-        progress.value =
-        percent;
-
-
-        currentTime.textContent =
-        formatTime(audio.currentTime);
-
-        duration.textContent =
-        formatTime(audio.duration);
-
-    }
+duration.textContent =
+formatTime(
+audio.duration
 );
 
+});
 
-/* =========================
+
+audio.addEventListener(
+"play",
+function(){
+
+playButton.textContent =
+"⏸";
+
+});
+
+
+audio.addEventListener(
+"pause",
+function(){
+
+playButton.textContent =
+"▶";
+
+});
+
+
+audio.addEventListener(
+"error",
+function(){
+
+console.error(
+"MP3 açylmady:",
+audio.error
+);
+
+playButton.textContent =
+"▶";
+
+});
+
+
+/* ==============================
    PROGRESS
-========================= */
+============================== */
 
-function seekSong(){
+progress.addEventListener(
+"input",
+function(){
 
-    if(!audio.duration){
-        return;
-    }
-
-
-    audio.currentTime =
-    (progress.value / 100)
-    * audio.duration;
-
+if(!audio.duration){
+return;
 }
 
 
-/* =========================
+audio.currentTime =
+(progress.value / 100)
+* audio.duration;
+
+});
+
+
+/* ==============================
    VOLUME
-========================= */
+============================== */
 
-function changeVolume(){
+volume.addEventListener(
+"input",
+function(){
 
-    audio.volume =
-    volume.value;
+audio.volume =
+volume.value;
+
+});
 
 
-    if(audio.volume > 0){
+/* ==============================
+   SEARCH
+============================== */
 
-        muteButton.textContent =
-        "🔊";
+search.addEventListener(
+"input",
+function(){
 
-    }
-    else{
+const text =
+search.value
+.toLowerCase()
+.trim();
 
-        muteButton.textContent =
-        "🔇";
 
-    }
+filteredSongs =
+songs.filter(song => {
+
+const title =
+titleOf(song)
+.toLowerCase();
+
+const artist =
+artistOf(song)
+.toLowerCase();
+
+
+return (
+title.includes(text) ||
+artist.includes(text)
+);
+
+});
+
+
+renderSongs();
+
+});
+
+
+/* ==============================
+   GENRE
+============================== */
+
+function filterGenre(
+genre,
+button
+){
+
+document
+.querySelectorAll(".genre")
+.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+button.classList.add("active");
+
+
+if(genre === "all"){
+
+filteredSongs =
+[...songs];
+
+}
+else{
+
+filteredSongs =
+songs.filter(song => {
+
+return (
+(song.genre || "")
+.toLowerCase()
+=== genre
+);
+
+});
 
 }
 
 
-/* =========================
-   MUTE
-========================= */
-
-function toggleMute(){
-
-    if(audio.volume > 0){
-
-        oldVolume =
-        audio.volume;
-
-        audio.volume =
-        0;
-
-        volume.value =
-        0;
-
-        muteButton.textContent =
-        "🔇";
-
-    }
-    else{
-
-        audio.volume =
-        oldVolume || 1;
-
-        volume.value =
-        audio.volume;
-
-        muteButton.textContent =
-        "🔊";
-
-    }
+renderSongs();
 
 }
 
 
-/* =========================
-   FORMAT TIME
-========================= */
+/* ==============================
+   TIME
+============================== */
 
 function formatTime(seconds){
 
-    if(
-        !seconds ||
-        isNaN(seconds)
-    ){
-
-        return "0:00";
-
-    }
-
-
-    const minutes =
-    Math.floor(seconds / 60);
-
-
-    const secs =
-    Math.floor(seconds % 60)
-    .toString()
-    .padStart(2,"0");
-
-
-    return minutes + ":" + secs;
-
-}
-
-
-/* =========================
-   SEARCH
-========================= */
-
-searchInput.addEventListener(
-    "input",
-    function(){
-
-        const text =
-        searchInput.value
-        .toLowerCase()
-        .trim();
-
-
-        filteredSongs =
-        songs.filter(song=>{
-
-            const title =
-            getTitle(song)
-            .toLowerCase();
-
-            const artist =
-            getArtist(song)
-            .toLowerCase();
-
-
-            return (
-                title.includes(text) ||
-                artist.includes(text)
-            );
-
-        });
-
-
-        /*
-           Genre filter hem saklanýar.
-        */
-
-        if(currentGenre !== "all"){
-
-            filteredSongs =
-            filteredSongs.filter(song=>{
-
-                return (
-                    getGenre(song)
-                    === currentGenre
-                );
-
-            });
-
-        }
-
-
-        renderSongs();
-
-    }
-);
-
-
-/* =========================
-   GENRE
-========================= */
-
-function filterGenre(
-    genre,
-    button
+if(
+!seconds ||
+isNaN(seconds)
 ){
 
-    currentGenre =
-    genre;
-
-
-    document
-    .querySelectorAll(".genre")
-    .forEach(btn=>{
-
-        btn.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    if(button){
-
-        button.classList.add(
-            "active"
-        );
-
-    }
-
-
-    const search =
-    searchInput.value
-    .toLowerCase()
-    .trim();
-
-
-    filteredSongs =
-    songs.filter(song=>{
-
-        const title =
-        getTitle(song)
-        .toLowerCase();
-
-        const artist =
-        getArtist(song)
-        .toLowerCase();
-
-
-        const searchMatch =
-        title.includes(search) ||
-        artist.includes(search);
-
-
-        const genreMatch =
-        genre === "all" ||
-        getGenre(song) === genre;
-
-
-        return (
-            searchMatch &&
-            genreMatch
-        );
-
-    });
-
-
-    renderSongs();
+return "0:00";
 
 }
 
 
-/* =========================
-   ERROR
-========================= */
+const min =
+Math.floor(seconds / 60);
 
-audio.addEventListener(
-    "error",
-    function(){
-
-        console.error(
-            "MP3 açylmady:",
-            audio.error
-        );
-
-        playButton.textContent =
-        "▶";
-
-    }
-);
+const sec =
+Math.floor(seconds % 60)
+.toString()
+.padStart(2,"0");
 
 
-/* =========================
+return min + ":" + sec;
+
+}
+
+
+/* ==============================
    START
-========================= */
+============================== */
 
 loadSongs();
 
