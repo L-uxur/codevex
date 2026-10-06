@@ -2,649 +2,644 @@
 <html lang="tk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AÝDYMLY — Music</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>AÝDYMLY</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    font-family:Arial,sans-serif;
-    background:#050914;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#06101d;
     color:#fff;
     min-height:100vh;
 }
 
-button,input{font-family:inherit}
+/* HEADER */
 
-.app{display:flex;min-height:100vh}
-
-/* SIDEBAR */
-.sidebar{
-    width:230px;
-    position:fixed;
+header{
+    height:70px;
+    background:#0a1727;
+    border-bottom:1px solid #20364d;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:0 25px;
+    position:sticky;
     top:0;
-    bottom:0;
-    left:0;
-    background:#070d19;
-    border-right:1px solid #17253b;
-    padding:25px 15px;
-    z-index:30;
+    z-index:50;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    margin-bottom:45px;
-    padding-left:8px;
-}
-
-.logoIcon{
-    width:44px;
-    height:44px;
-    border:2px solid #1594ff;
-    border-radius:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#52b8ff;
-    font-size:24px;
+    font-size:25px;
     font-weight:bold;
-    box-shadow:0 0 25px #0879d633;
+    color:#36e5cf;
+    white-space:nowrap;
 }
 
-.logoText{
-    font-size:20px;
-    font-weight:800;
-}
-
-.logoText span{color:#42adff}
-
-.nav{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.nav button{
-    border:0;
-    background:transparent;
-    color:#8998af;
-    padding:14px;
-    border-radius:12px;
-    text-align:left;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.nav button:hover,
-.nav button.active{
-    color:white;
-    background:#126fd91f;
-}
-
-.icon{
-    display:inline-block;
-    width:28px;
-    font-size:18px;
-}
-
-.bottomText{
-    position:absolute;
-    left:15px;
-    right:15px;
-    bottom:25px;
-    color:#61728c;
-    font-size:11px;
-}
-
-/* MAIN */
-.main{
-    margin-left:230px;
-    width:calc(100% - 230px);
-    padding:25px 28px 145px;
-}
-
-.topbar{
-    display:flex;
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.search{
+.searchBox{
     flex:1;
+    max-width:600px;
     position:relative;
 }
 
-.search input{
+.searchBox input{
     width:100%;
-    padding:16px 18px 16px 48px;
-    background:#0b1627;
-    color:#fff;
-    border:1px solid #172b47;
-    border-radius:15px;
+    background:#101f31;
+    border:1px solid #29445c;
+    color:white;
     outline:none;
-}
-
-.search input:focus{
-    border-color:#168cff;
+    border-radius:25px;
+    padding:13px 20px 13px 45px;
+    font-size:14px;
 }
 
 .searchIcon{
     position:absolute;
     left:17px;
-    top:13px;
-    font-size:21px;
-    color:#8395ae;
+    top:12px;
+    color:#8da5ba;
 }
 
-.topBtn{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    border:1px solid #172b47;
-    background:#0b1627;
-    color:#fff;
+/* MAIN */
+
+main{
+    padding:25px;
+    padding-bottom:150px;
 }
 
-/* HERO */
 .hero{
-    height:260px;
-    border:1px solid #18304f;
-    border-radius:23px;
-    padding:40px;
+    min-height:230px;
+    border-radius:22px;
+    padding:35px;
     display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
+    flex-direction:column;
+    justify-content:center;
     background:
-      radial-gradient(circle at 80% 50%,#0876c955,transparent 35%),
-      linear-gradient(100deg,#07101d,#0b1b31);
-}
-
-.hero:after{
-    content:"♫";
-    position:absolute;
-    right:100px;
-    top:25px;
-    font-size:190px;
-    color:#168cff18;
-}
-
-.heroText{
-    position:relative;
-    z-index:2;
-}
-
-.hero small{
-    color:#46b3ff;
-    font-weight:bold;
+        radial-gradient(circle at 80% 20%,#18546b55,transparent 35%),
+        linear-gradient(135deg,#0d2943,#102d45,#092033);
+    border:1px solid #21415c;
+    margin-bottom:30px;
 }
 
 .hero h1{
-    font-size:44px;
-    margin:12px 0;
-    line-height:1;
+    font-size:40px;
+    margin-bottom:12px;
 }
 
-.hero h1 span{color:#ff915c}
-
-.hero p{color:#899ab3}
+.hero p{
+    color:#9db3c6;
+    font-size:16px;
+}
 
 /* GENRES */
+
+.sectionTitle{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
 .genres{
     display:flex;
-    gap:9px;
+    gap:10px;
     overflow-x:auto;
-    padding:20px 0;
+    padding-bottom:10px;
+    margin-bottom:30px;
+}
+
+.genres::-webkit-scrollbar{
+    height:4px;
 }
 
 .genre{
-    white-space:nowrap;
+    background:#0d2034;
+    border:1px solid #24425c;
+    color:#b8cada;
     padding:10px 18px;
-    border-radius:30px;
-    background:#0a1729;
-    border:1px solid #182d49;
-    color:#91a0b8;
+    border-radius:25px;
+    white-space:nowrap;
     cursor:pointer;
+    transition:.2s;
 }
 
 .genre:hover,
 .genre.active{
-    background:#168cff;
-    color:#fff;
-}
-
-/* SECTION */
-.sectionHeader{
-    display:flex;
-    justify-content:space-between;
-    margin:10px 0 17px;
-}
-
-.sectionHeader h2{font-size:21px}
-
-.sectionHeader span{
-    color:#43adff;
-    font-size:13px;
+    background:#36e5cf;
+    color:#06101d;
+    border-color:#36e5cf;
 }
 
 /* SONGS */
+
 .songGrid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(165px,1fr));
-    gap:17px;
+    grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+    gap:20px;
 }
 
-.song{
-    background:#0a1627;
-    border:1px solid #172b47;
-    border-radius:16px;
-    padding:10px;
+.songCard{
+    background:#0b1a2b;
+    border:1px solid #1d354b;
+    border-radius:17px;
+    padding:12px;
     cursor:pointer;
     transition:.25s;
+    position:relative;
 }
 
-.song:hover{
+.songCard:hover{
     transform:translateY(-5px);
-    border-color:#168cff88;
-    box-shadow:0 15px 35px #006eff18;
+    border-color:#36e5cf;
+    box-shadow:0 10px 30px #0007;
 }
 
-.cover{
+.coverBox{
     width:100%;
-    aspect-ratio:1;
-    object-fit:cover;
-    border-radius:11px;
-    background:#101e32;
+    aspect-ratio:1/1;
+    border-radius:13px;
+    overflow:hidden;
+    background:#14283b;
+    position:relative;
 }
 
-.songInfo{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:10px;
+.coverBox img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.cardPlay{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#36e5cf;
+    color:#06101d;
+    font-size:18px;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(5px);
+    transition:.2s;
+}
+
+.songCard:hover .cardPlay{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .songTitle{
+    margin-top:12px;
+    font-size:16px;
     font-weight:bold;
-    font-size:14px;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
 }
 
 .songArtist{
-    color:#7e8fa9;
-    font-size:12px;
+    margin-top:6px;
+    color:#8fa7bb;
+    font-size:13px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.empty{
+    color:#8fa7bb;
+    padding:30px 0;
+}
+
+/* PLAYER */
+
+.player{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:95px;
+    background:#091725ee;
+    backdrop-filter:blur(15px);
+    border-top:1px solid #29445d;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:10px 20px;
+    z-index:100;
+}
+
+.playerCover{
+    width:65px;
+    height:65px;
+    border-radius:10px;
+    object-fit:cover;
+    background:#14283b;
+}
+
+.playerInfo{
+    width:190px;
+    min-width:120px;
+}
+
+.playerTitle{
+    font-weight:bold;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.playerArtist{
+    color:#8fa7bb;
+    font-size:13px;
     margin-top:5px;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
 }
 
-.miniPlay{
-    width:32px;
-    height:32px;
-    border:0;
-    border-radius:50%;
-    background:#168cff;
-    color:white;
-    cursor:pointer;
-}
-
-.empty{
-    grid-column:1/-1;
-    text-align:center;
-    padding:50px;
-    border:1px dashed #1a304d;
-    border-radius:15px;
-    color:#71829c;
-}
-
-/* PLAYER */
-.player{
-    position:fixed;
-    left:230px;
-    right:0;
-    bottom:0;
-    min-height:92px;
-    background:#060d18f5;
-    backdrop-filter:blur(18px);
-    border-top:1px solid #172b47;
-    display:flex;
-    align-items:center;
-    gap:18px;
-    padding:10px 20px;
-    z-index:50;
-}
-
-.now{
-    width:230px;
+.playerControls{
     display:flex;
     align-items:center;
     gap:10px;
-    flex-shrink:0;
-}
-
-.now img{
-    width:55px;
-    height:55px;
-    object-fit:cover;
-    border-radius:9px;
-}
-
-.nowTitle{
-    font-size:13px;
-    font-weight:bold;
-}
-
-.nowArtist{
-    font-size:11px;
-    color:#7889a2;
-    margin-top:4px;
-}
-
-.controls{
-    display:flex;
-    align-items:center;
-    gap:12px;
 }
 
 .control{
-    border:0;
-    background:none;
-    color:#c4d0e2;
-    font-size:18px;
-    cursor:pointer;
-}
-
-.play{
-    width:44px;
-    height:44px;
+    width:40px;
+    height:40px;
+    border:none;
     border-radius:50%;
-    border:0;
-    background:#168cff;
+    background:#12273b;
     color:white;
-    font-size:17px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.control:hover{
+    background:#1d3a53;
+}
+
+.mainPlay{
+    background:#36e5cf;
+    color:#06101d;
+    font-size:18px;
+}
+
+.progressArea{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.progress{
+    width:100%;
+    accent-color:#36e5cf;
     cursor:pointer;
 }
 
-.spotifyPlayer{
-    flex:1;
-    height:80px;
-    min-width:250px;
+.time{
+    color:#8fa7bb;
+    font-size:12px;
+    white-space:nowrap;
 }
 
-.spotifyPlayer iframe{
-    width:100%;
-    height:80px;
-    border:0;
-    border-radius:12px;
+.volumeArea{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.volume{
+    width:90px;
+    accent-color:#36e5cf;
 }
 
 /* MOBILE */
-@media(max-width:800px){
 
-    .sidebar{
-        width:68px;
-        padding:20px 7px;
-    }
+@media(max-width:700px){
 
-    .logoText,
-    .nav button span:not(.icon),
-    .bottomText{
-        display:none;
+    header{
+        height:65px;
+        padding:0 12px;
+        gap:12px;
     }
 
     .logo{
-        justify-content:center;
-        padding:0;
+        font-size:20px;
     }
 
-    .main{
-        margin-left:68px;
-        width:calc(100% - 68px);
-        padding:17px 12px 105px;
+    .searchBox{
+        max-width:none;
+    }
+
+    main{
+        padding:15px;
+        padding-bottom:145px;
     }
 
     .hero{
-        height:210px;
+        min-height:190px;
         padding:25px;
     }
 
     .hero h1{
-        font-size:31px;
+        font-size:28px;
     }
 
-    .player{
-        left:68px;
-        min-height:155px;
-        padding:8px;
-        flex-wrap:wrap;
-        gap:6px;
-    }
-
-    .now{
-        width:100%;
-        height:45px;
-    }
-
-    .now img{
-        width:42px;
-        height:42px;
-    }
-
-    .controls{
-        display:none;
-    }
-
-    .spotifyPlayer{
-        width:100%;
-        min-width:0;
-        height:80px;
-    }
-
-    .spotifyPlayer iframe{
-        height:80px;
+    .hero p{
+        font-size:14px;
     }
 
     .songGrid{
         grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .songCard{
+        padding:9px;
+    }
+
+    .cardPlay{
+        opacity:1;
+        transform:none;
+        width:38px;
+        height:38px;
+    }
+
+    .player{
+        height:105px;
+        padding:8px 10px;
+        gap:8px;
+        flex-wrap:wrap;
+    }
+
+    .playerCover{
+        width:48px;
+        height:48px;
+    }
+
+    .playerInfo{
+        width:100px;
+        min-width:80px;
+    }
+
+    .playerControls{
+        gap:4px;
+    }
+
+    .control{
+        width:36px;
+        height:36px;
+    }
+
+    .progressArea{
+        position:absolute;
+        left:10px;
+        right:10px;
+        bottom:4px;
+    }
+
+    .volumeArea{
+        display:none;
+    }
+
+    .time{
+        font-size:10px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<div class="app">
-
-<aside class="sidebar">
+<header>
 
     <div class="logo">
-        <div class="logoIcon">A</div>
-        <div class="logoText">AÝ<span>DYMLY</span></div>
+        AÝDYMLY
     </div>
 
-    <div class="nav">
+    <div class="searchBox">
 
-        <button class="active">
-            <span class="icon">⌂</span>
-            <span>Baş sahypa</span>
-        </button>
+        <span class="searchIcon">🔎</span>
 
-        <button>
-            <span class="icon">♫</span>
-            <span>Aýdymlar</span>
-        </button>
-
-        <button>
-            <span class="icon">♬</span>
-            <span>Playlist</span>
-        </button>
-
-        <button>
-            <span class="icon">♡</span>
-            <span>Halanlar</span>
-        </button>
-
-        <button>
-            <span class="icon">⌕</span>
-            <span>Gözleg</span>
-        </button>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Aýdym ýa-da aýdymçy gözle..."
+        >
 
     </div>
 
-    <div class="bottomText">
-        <b>AÝDYMLY</b><br>
-        Music connects people.
-    </div>
-
-</aside>
+</header>
 
 
-<main class="main">
-
-    <div class="topbar">
-
-        <div class="search">
-            <span class="searchIcon">⌕</span>
-
-            <input
-                id="searchInput"
-                placeholder="Aýdym, artist ýa-da genre gözle..."
-            >
-        </div>
-
-        <button class="topBtn">☾</button>
-        <button class="topBtn">◉</button>
-
-    </div>
-
+<main>
 
     <section class="hero">
 
-        <div class="heroText">
+        <h1>Aýdymyňy saýla 🎵</h1>
 
-            <small>AÝDYMLY MUSIC</small>
-
-            <h1>
-                Good Music<br>
-                <span>Better Days</span>
-            </h1>
-
-            <p>Aýdymlar ruhyňy bezeýär...</p>
-
-        </div>
+        <p>
+            Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
+        </p>
 
     </section>
+
+
+    <h2 class="sectionTitle">
+        Žanrlar
+    </h2>
 
 
     <div class="genres">
 
-        <button class="genre active" data-genre="all">Ähli</button>
-        <button class="genre" data-genre="Pop">Pop</button>
-        <button class="genre" data-genre="Rap">Rap</button>
-        <button class="genre" data-genre="Hip-Hop">Hip-Hop</button>
-        <button class="genre" data-genre="Phonk">Phonk</button>
-        <button class="genre" data-genre="Funk">Funk</button>
-        <button class="genre" data-genre="Rock">Rock</button>
-        <button class="genre" data-genre="Electronic">Electronic</button>
-        <button class="genre" data-genre="Turkmen">Türkmen</button>
-        <button class="genre" data-genre="Turkish">Türk</button>
+        <button
+            class="genre active"
+            onclick="filterGenre('all',this)">
+            Hemmesi
+        </button>
+
+        <button
+            class="genre"
+            onclick="filterGenre('pop',this)">
+            Pop
+        </button>
+
+        <button
+            class="genre"
+            onclick="filterGenre('rap',this)">
+            Rap
+        </button>
+
+        <button
+            class="genre"
+            onclick="filterGenre('phonk',this)">
+            Phonk
+        </button>
+
+        <button
+            class="genre"
+            onclick="filterGenre('funk',this)">
+            Funk
+        </button>
+
+        <button
+            class="genre"
+            onclick="filterGenre('turkmen',this)">
+            Türkmen
+        </button>
 
     </div>
 
 
-    <section>
+    <h2 class="sectionTitle">
+        Aýdymlar
+    </h2>
 
-        <div class="sectionHeader">
 
-            <h2>🔥 Meşhur aýdymlar</h2>
+    <div
+        id="songGrid"
+        class="songGrid">
 
-            <span>Ähmesini görmek →</span>
-
+        <div class="empty">
+            Aýdymlar ýüklenýär...
         </div>
 
-        <div id="songGrid" class="songGrid">
-            <div class="empty">Aýdymlar ýüklenýär...</div>
-        </div>
-
-    </section>
+    </div>
 
 </main>
 
-</div>
 
-
-<!-- AÝDYMLY PLAYER -->
+<!-- PLAYER -->
 
 <div class="player">
 
-    <div class="now">
+    <img
+        id="playerCover"
+        class="playerCover"
+        src=""
+        alt="Cover"
+    >
 
-        <img
-            id="nowCover"
-            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=400&q=80"
+
+    <div class="playerInfo">
+
+        <div
+            id="playerTitle"
+            class="playerTitle">
+            Aýdym saýla
+        </div>
+
+        <div
+            id="playerArtist"
+            class="playerArtist">
+            —
+        </div>
+
+    </div>
+
+
+    <div class="playerControls">
+
+        <button
+            class="control"
+            onclick="previousSong()">
+            ⏮
+        </button>
+
+        <button
+            id="playButton"
+            class="control mainPlay"
+            onclick="togglePlay()">
+            ▶
+        </button>
+
+        <button
+            class="control"
+            onclick="nextSong()">
+            ⏭
+        </button>
+
+    </div>
+
+
+    <div class="progressArea">
+
+        <span
+            id="currentTime"
+            class="time">
+            0:00
+        </span>
+
+        <input
+            id="progress"
+            class="progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            oninput="seekSong()"
         >
 
-        <div>
-
-            <div id="nowTitle" class="nowTitle">
-                Aýdym saýla
-            </div>
-
-            <div id="nowArtist" class="nowArtist">
-                AÝDYMLY
-            </div>
-
-        </div>
+        <span
+            id="duration"
+            class="time">
+            0:00
+        </span>
 
     </div>
 
 
-    <div class="controls">
+    <div class="volumeArea">
 
-        <button class="control">↶</button>
+        <button
+            id="muteButton"
+            class="control"
+            onclick="toggleMute()">
+            🔊
+        </button>
 
-        <button class="control">◀</button>
-
-        <button id="playButton" class="play">▶</button>
-
-        <button class="control">▶</button>
-
-        <button class="control">↷</button>
-
-    </div>
-
-
-    <div id="spotifyPlayer" class="spotifyPlayer">
-
-        <div style="
-            height:80px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:#71829c;
-            font-size:12px;
-        ">
-            Aýdym saýlaň
-        </div>
+        <input
+            id="volume"
+            class="volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+            oninput="changeVolume()"
+        >
 
     </div>
 
 </div>
+
+
+<audio
+    id="audio"
+    preload="metadata">
+</audio>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
-/* ================================
+/* =========================
    SUPABASE
-================================ */
+========================= */
 
 const SUPABASE_URL =
 "https://ievywgyevceodiwgymce.supabase.co";
@@ -659,9 +654,12 @@ supabase.createClient(
 );
 
 
-/* ================================
+/* =========================
    ELEMENTS
-================================ */
+========================= */
+
+const audio =
+document.getElementById("audio");
 
 const songGrid =
 document.getElementById("songGrid");
@@ -669,90 +667,177 @@ document.getElementById("songGrid");
 const searchInput =
 document.getElementById("searchInput");
 
-const nowTitle =
-document.getElementById("nowTitle");
+const playerCover =
+document.getElementById("playerCover");
 
-const nowArtist =
-document.getElementById("nowArtist");
+const playerTitle =
+document.getElementById("playerTitle");
 
-const nowCover =
-document.getElementById("nowCover");
+const playerArtist =
+document.getElementById("playerArtist");
 
 const playButton =
 document.getElementById("playButton");
 
-const spotifyPlayer =
-document.getElementById("spotifyPlayer");
+const progress =
+document.getElementById("progress");
+
+const currentTime =
+document.getElementById("currentTime");
+
+const duration =
+document.getElementById("duration");
+
+const volume =
+document.getElementById("volume");
+
+const muteButton =
+document.getElementById("muteButton");
 
 
-const defaultCover =
-"https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=80";
-
+/* =========================
+   VARIABLES
+========================= */
 
 let songs = [];
-let currentSong = null;
+
+let filteredSongs = [];
+
+let currentIndex = -1;
+
+let currentGenre = "all";
+
+let oldVolume = 1;
 
 
-/* ================================
+/* =========================
    LOAD SONGS
-================================ */
+========================= */
 
 async function loadSongs(){
 
     try{
 
-        const {data,error} =
+        const result =
         await db
         .from("Songs")
         .select("*")
-        .order("id",{ascending:false});
+        .order("id",{ascending:true});
 
 
-        if(error){
+        if(result.error){
 
-            console.error(error);
+            console.error(result.error);
 
             songGrid.innerHTML =
-            `<div class="empty">
-                Songs tablisasyny okap bolmady.
-            </div>`;
+            `
+            <div class="empty">
+                Aýdymlary ýüklemekde ýalňyşlyk boldy.
+            </div>
+            `;
 
             return;
         }
 
 
-        songs = data || [];
+        songs =
+        result.data || [];
 
-        renderSongs(songs);
+        filteredSongs =
+        [...songs];
+
+        renderSongs();
 
     }
-
     catch(error){
 
         console.error(error);
 
         songGrid.innerHTML =
-        `<div class="empty">
-            Baglanyşyk ýalňyşlygy boldy.
-        </div>`;
+        `
+        <div class="empty">
+            Baglanyşyk ýalňyşlygy.
+        </div>
+        `;
 
     }
 
 }
 
 
-/* ================================
+/* =========================
+   GET COLUMN
+========================= */
+
+function getTitle(song){
+
+    return (
+        song.title ||
+        song.başlık ||
+        "Näbelli aýdym"
+    );
+
+}
+
+
+function getArtist(song){
+
+    return (
+        song.artist ||
+        song.sanatçı ||
+        "Näbelli aýdymçy"
+    );
+
+}
+
+
+function getAudio(song){
+
+    return (
+        song.ses_url ||
+        song.audio_url ||
+        ""
+    );
+
+}
+
+
+function getCover(song){
+
+    return (
+        song.kapak_url ||
+        song.cover_url ||
+        ""
+    );
+
+}
+
+
+function getGenre(song){
+
+    return (
+        song.genre ||
+        song.žanr ||
+        ""
+    ).toString().toLowerCase();
+
+}
+
+
+/* =========================
    RENDER SONGS
-================================ */
+========================= */
 
-function renderSongs(list){
+function renderSongs(){
 
-    if(!list.length){
+    if(filteredSongs.length === 0){
 
         songGrid.innerHTML =
-        `<div class="empty">
+        `
+        <div class="empty">
             Aýdym tapylmady.
-        </div>`;
+        </div>
+        `;
 
         return;
     }
@@ -761,67 +846,105 @@ function renderSongs(list){
     songGrid.innerHTML = "";
 
 
-    list.forEach(song => {
+    filteredSongs.forEach(song=>{
+
+        const realIndex =
+        songs.indexOf(song);
+
+        const title =
+        getTitle(song);
+
+        const artist =
+        getArtist(song);
+
+        const cover =
+        getCover(song);
+
 
         const card =
         document.createElement("div");
 
-        card.className = "song";
+        card.className =
+        "songCard";
 
 
-        const title =
-        song.title ||
-        song.başlık ||
-        "Adsız aýdym";
+        const coverBox =
+        document.createElement("div");
+
+        coverBox.className =
+        "coverBox";
 
 
-        const artist =
-        song.artist ||
-        song.sanatçı ||
-        "Näbelli artist";
+        if(cover){
+
+            const img =
+            document.createElement("img");
+
+            img.src = cover;
+
+            img.alt = title;
+
+            coverBox.appendChild(img);
+
+        }
 
 
-        const cover =
-        song.cover_url ||
-        song.cover ||
-        defaultCover;
+        const button =
+        document.createElement("button");
+
+        button.className =
+        "cardPlay";
+
+        button.textContent =
+        "▶";
 
 
-        card.innerHTML = `
+        button.onclick =
+        function(event){
 
-            <img
-                class="cover"
-                src="${safe(cover)}"
-                onerror="this.src='${defaultCover}'"
-            >
+            event.stopPropagation();
 
-            <div class="songInfo">
+            selectSong(realIndex);
 
-                <div style="min-width:0">
-
-                    <div class="songTitle">
-                        ${safe(title)}
-                    </div>
-
-                    <div class="songArtist">
-                        ${safe(artist)}
-                    </div>
-
-                </div>
-
-                <button class="miniPlay">
-                    ▶
-                </button>
-
-            </div>
-
-        `;
+        };
 
 
-        card.addEventListener(
-            "click",
-            () => selectSong(song)
-        );
+        coverBox.appendChild(button);
+
+
+        const titleElement =
+        document.createElement("div");
+
+        titleElement.className =
+        "songTitle";
+
+        titleElement.textContent =
+        title;
+
+
+        const artistElement =
+        document.createElement("div");
+
+        artistElement.className =
+        "songArtist";
+
+        artistElement.textContent =
+        artist;
+
+
+        card.appendChild(coverBox);
+
+        card.appendChild(titleElement);
+
+        card.appendChild(artistElement);
+
+
+        card.onclick =
+        function(){
+
+            selectSong(realIndex);
+
+        };
 
 
         songGrid.appendChild(card);
@@ -831,331 +954,542 @@ function renderSongs(list){
 }
 
 
-/* ================================
+/* =========================
    SELECT SONG
-================================ */
+========================= */
 
-function selectSong(song){
+function selectSong(index){
 
-    currentSong = song;
+    if(!songs[index]){
+        return;
+    }
+
+
+    currentIndex =
+    index;
+
+
+    const song =
+    songs[index];
 
 
     const title =
-    song.title ||
-    song.başlık ||
-    "Adsız aýdym";
-
+    getTitle(song);
 
     const artist =
-    song.artist ||
-    song.sanatçı ||
-    "Näbelli artist";
+    getArtist(song);
+
+    const audioURL =
+    getAudio(song);
+
+    const coverURL =
+    getCover(song);
 
 
-    const cover =
-    song.cover_url ||
-    song.cover ||
-    defaultCover;
+    playerTitle.textContent =
+    title;
+
+    playerArtist.textContent =
+    artist;
 
 
-    nowTitle.textContent = title;
-    nowArtist.textContent = artist;
-    nowCover.src = cover;
+    if(coverURL){
+
+        playerCover.src =
+        coverURL;
+
+    }
+    else{
+
+        playerCover.removeAttribute("src");
+
+    }
 
 
-    loadSpotifyPlayer(song);
+    if(!audioURL){
 
-}
-
-
-/* ================================
-   SPOTIFY EMBED
-================================ */
-
-function loadSpotifyPlayer(song){
-
-    const spotify =
-    song.spotify_url;
-
-
-    if(!spotify){
-
-        spotifyPlayer.innerHTML = `
-            <div style="
-                height:80px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#71829c;
-                font-size:12px;
-            ">
-                Bu aýdymda Spotify link ýok
-            </div>
-        `;
+        alert(
+            "Bu aýdymyň ses URL-si ýok."
+        );
 
         return;
     }
 
 
-    const trackId =
-    getSpotifyTrackId(spotify);
+    /*
+       Täze aýdym saýlananda
+       öňki aýdymyň ýerine täze MP3 goýulýar.
+    */
+
+    audio.pause();
+
+    audio.src =
+    audioURL;
+
+    audio.load();
 
 
-    if(!trackId){
+    /*
+       Useriň basmagy bilen
+       play() edilýär.
+    */
 
-        spotifyPlayer.innerHTML = `
-            <div style="
-                height:80px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:#ff8b8b;
-                font-size:12px;
-            ">
-                Spotify link nädogry
-            </div>
-        `;
+    const playPromise =
+    audio.play();
+
+
+    if(playPromise !== undefined){
+
+        playPromise
+        .then(()=>{
+
+            playButton.textContent =
+            "⏸";
+
+        })
+        .catch(error=>{
+
+            console.log(
+                "Play error:",
+                error
+            );
+
+            playButton.textContent =
+            "▶";
+
+        });
+
+    }
+
+}
+
+
+/* =========================
+   PLAY / PAUSE
+========================= */
+
+function togglePlay(){
+
+    if(!audio.src){
+
+        if(songs.length > 0){
+
+            selectSong(0);
+
+        }
 
         return;
     }
 
 
-    spotifyPlayer.innerHTML = `
+    if(audio.paused){
 
-        <iframe
-            src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-        </iframe>
+        audio.play()
+        .then(()=>{
 
-    `;
+            playButton.textContent =
+            "⏸";
 
-}
+        })
+        .catch(error=>{
 
+            console.log(error);
 
-/* ================================
-   GET SPOTIFY TRACK ID
-================================ */
-
-function getSpotifyTrackId(url){
-
-    try{
-
-        const text =
-        String(url).trim();
-
-
-        const match =
-        text.match(
-            /spotify\.com\/track\/([A-Za-z0-9]+)/
-        );
-
-
-        if(match){
-
-            return match[1];
-
-        }
-
-
-        if(
-            text.startsWith("spotify:track:")
-        ){
-
-            return text
-            .replace(
-                "spotify:track:",
-                ""
-            )
-            .split("?")[0];
-
-        }
-
-
-        return null;
+        });
 
     }
+    else{
 
-    catch(e){
+        audio.pause();
 
-        return null;
+        playButton.textContent =
+        "▶";
 
     }
 
 }
 
 
-/* ================================
-   SEARCH
-================================ */
+/* =========================
+   NEXT
+========================= */
 
-searchInput.addEventListener(
-"input",
-function(){
+function nextSong(){
 
-    const value =
-    this.value.toLowerCase().trim();
-
-
-    const filtered =
-    songs.filter(song => {
-
-        const title =
-        String(
-            song.title ||
-            song.başlık ||
-            ""
-        ).toLowerCase();
+    if(songs.length === 0){
+        return;
+    }
 
 
-        const artist =
-        String(
-            song.artist ||
-            song.sanatçı ||
-            ""
-        ).toLowerCase();
+    let next =
+    currentIndex + 1;
 
 
-        const genre =
-        String(
-            song.genre ||
-            ""
-        ).toLowerCase();
+    if(next >= songs.length){
+
+        next = 0;
+
+    }
 
 
-        return (
-            title.includes(value) ||
-            artist.includes(value) ||
-            genre.includes(value)
-        );
+    selectSong(next);
 
-    });
+}
 
 
-    renderSongs(filtered);
+/* =========================
+   PREVIOUS
+========================= */
 
-});
+function previousSong(){
+
+    if(songs.length === 0){
+        return;
+    }
 
 
-/* ================================
-   GENRE
-================================ */
+    let previous =
+    currentIndex - 1;
 
-document
-.querySelectorAll(".genre")
-.forEach(button => {
 
-    button.addEventListener(
-    "click",
+    if(previous < 0){
+
+        previous =
+        songs.length - 1;
+
+    }
+
+
+    selectSong(previous);
+
+}
+
+
+/* =========================
+   AUTO NEXT
+========================= */
+
+audio.addEventListener(
+    "ended",
     function(){
 
-        document
-        .querySelectorAll(".genre")
-        .forEach(x =>
-            x.classList.remove("active")
-        );
+        nextSong();
+
+    }
+);
 
 
-        this.classList.add("active");
+/* =========================
+   TIME
+========================= */
+
+audio.addEventListener(
+    "loadedmetadata",
+    function(){
+
+        duration.textContent =
+        formatTime(audio.duration);
+
+    }
+);
 
 
-        const genre =
-        this.dataset.genre;
+audio.addEventListener(
+    "timeupdate",
+    function(){
 
-
-        if(genre === "all"){
-
-            renderSongs(songs);
-
+        if(!audio.duration){
             return;
-
         }
 
 
-        const filtered =
-        songs.filter(song => {
+        const percent =
+        (audio.currentTime /
+        audio.duration) * 100;
 
-            const g =
-            String(
-                song.genre || ""
-            ).toLowerCase();
+
+        progress.value =
+        percent;
+
+
+        currentTime.textContent =
+        formatTime(audio.currentTime);
+
+        duration.textContent =
+        formatTime(audio.duration);
+
+    }
+);
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function seekSong(){
+
+    if(!audio.duration){
+        return;
+    }
+
+
+    audio.currentTime =
+    (progress.value / 100)
+    * audio.duration;
+
+}
+
+
+/* =========================
+   VOLUME
+========================= */
+
+function changeVolume(){
+
+    audio.volume =
+    volume.value;
+
+
+    if(audio.volume > 0){
+
+        muteButton.textContent =
+        "🔊";
+
+    }
+    else{
+
+        muteButton.textContent =
+        "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   MUTE
+========================= */
+
+function toggleMute(){
+
+    if(audio.volume > 0){
+
+        oldVolume =
+        audio.volume;
+
+        audio.volume =
+        0;
+
+        volume.value =
+        0;
+
+        muteButton.textContent =
+        "🔇";
+
+    }
+    else{
+
+        audio.volume =
+        oldVolume || 1;
+
+        volume.value =
+        audio.volume;
+
+        muteButton.textContent =
+        "🔊";
+
+    }
+
+}
+
+
+/* =========================
+   FORMAT TIME
+========================= */
+
+function formatTime(seconds){
+
+    if(
+        !seconds ||
+        isNaN(seconds)
+    ){
+
+        return "0:00";
+
+    }
+
+
+    const minutes =
+    Math.floor(seconds / 60);
+
+
+    const secs =
+    Math.floor(seconds % 60)
+    .toString()
+    .padStart(2,"0");
+
+
+    return minutes + ":" + secs;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        const text =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+        filteredSongs =
+        songs.filter(song=>{
+
+            const title =
+            getTitle(song)
+            .toLowerCase();
+
+            const artist =
+            getArtist(song)
+            .toLowerCase();
 
 
             return (
-                g === genre.toLowerCase()
+                title.includes(text) ||
+                artist.includes(text)
             );
 
         });
 
 
-        renderSongs(filtered);
+        /*
+           Genre filter hem saklanýar.
+        */
+
+        if(currentGenre !== "all"){
+
+            filteredSongs =
+            filteredSongs.filter(song=>{
+
+                return (
+                    getGenre(song)
+                    === currentGenre
+                );
+
+            });
+
+        }
+
+
+        renderSongs();
+
+    }
+);
+
+
+/* =========================
+   GENRE
+========================= */
+
+function filterGenre(
+    genre,
+    button
+){
+
+    currentGenre =
+    genre;
+
+
+    document
+    .querySelectorAll(".genre")
+    .forEach(btn=>{
+
+        btn.classList.remove(
+            "active"
+        );
 
     });
 
-});
 
+    if(button){
 
-/* ================================
-   PLAY BUTTON
-================================ */
-
-playButton.addEventListener(
-"click",
-function(){
-
-    if(!currentSong){
-
-        if(songs.length){
-
-            selectSong(songs[0]);
-
-        }
-
-        return;
+        button.classList.add(
+            "active"
+        );
 
     }
 
 
-    const spotify =
-    currentSong.spotify_url;
+    const search =
+    searchInput.value
+    .toLowerCase()
+    .trim();
 
 
-    if(spotify){
+    filteredSongs =
+    songs.filter(song=>{
 
-        const trackId =
-        getSpotifyTrackId(spotify);
+        const title =
+        getTitle(song)
+        .toLowerCase();
 
-
-        if(trackId){
-
-            loadSpotifyPlayer(currentSong);
-
-        }
-
-    }
-
-});
+        const artist =
+        getArtist(song)
+        .toLowerCase();
 
 
-/* ================================
-   SECURITY
-================================ */
+        const searchMatch =
+        title.includes(search) ||
+        artist.includes(search);
 
-function safe(text){
 
-    return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+        const genreMatch =
+        genre === "all" ||
+        getGenre(song) === genre;
+
+
+        return (
+            searchMatch &&
+            genreMatch
+        );
+
+    });
+
+
+    renderSongs();
 
 }
 
 
-/* ================================
+/* =========================
+   ERROR
+========================= */
+
+audio.addEventListener(
+    "error",
+    function(){
+
+        console.error(
+            "MP3 açylmady:",
+            audio.error
+        );
+
+        playButton.textContent =
+        "▶";
+
+    }
+);
+
+
+/* =========================
    START
-================================ */
+========================= */
 
 loadSongs();
 
