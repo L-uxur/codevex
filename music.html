@@ -286,8 +286,8 @@ accent-color:#35e5d0
 display:none;
 position:fixed;
 inset:0;
-background:#000b;
-backdrop-filter:blur(8px);
+background:#000c;
+backdrop-filter:blur(10px);
 z-index:500;
 align-items:center;
 justify-content:center;
@@ -298,7 +298,7 @@ padding:20px
 width:100%;
 max-width:400px;
 background:#091522;
-border:1px solid #29435a;
+border:1px solid #35e5d0;
 border-radius:20px;
 padding:25px;
 box-shadow:0 20px 60px #000
@@ -358,7 +358,7 @@ font-size:13px;
 line-height:1.5
 }
 
-/* ACCOUNT MENU */
+/* ACCOUNT */
 
 .profileMenu{
 display:none;
@@ -499,7 +499,6 @@ Giriş / Hasap
 
 </header>
 
-
 <main>
 
 <section class="hero">
@@ -510,14 +509,11 @@ Giriş / Hasap
 Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
 </p>
 
-<div
-id="premiumBox"
-class="premiumBox">
+<div id="premiumBox" class="premiumBox">
 Free
 </div>
 
 </section>
-
 
 <h2>Žanrlar</h2>
 
@@ -555,7 +551,6 @@ Türkmen
 
 </div>
 
-
 <h2>Aýdymlar</h2>
 
 <div id="songs" class="songs">
@@ -564,15 +559,13 @@ Türkmen
 
 </main>
 
-
 <!-- PLAYER -->
 
 <div class="player">
 
 <img id="playerCover"
 class="playerCover"
-alt="Cover"
->
+alt="Cover">
 
 <div class="info">
 
@@ -604,7 +597,8 @@ onclick="nextSong()">⏭</button>
 
 <span id="currentTime" class="time">0:00</span>
 
-<input id="progress"
+<input
+id="progress"
 class="progress"
 type="range"
 min="0"
@@ -616,7 +610,8 @@ step="0.1">
 
 </div>
 
-<input id="volume"
+<input
+id="volume"
 class="volume"
 type="range"
 min="0"
@@ -626,11 +621,9 @@ value="1">
 
 </div>
 
-
 <audio id="audio" preload="metadata"></audio>
 
-
-<!-- AUTH MODAL -->
+<!-- AUTH -->
 
 <div id="authModal" class="modal">
 
@@ -644,14 +637,12 @@ onclick="closeAuth()">×</button>
 <input
 id="authEmail"
 type="email"
-placeholder="Email"
->
+placeholder="Email">
 
 <input
 id="authPassword"
 type="password"
-placeholder="Parol"
->
+placeholder="Parol">
 
 <button
 id="authMainButton"
@@ -661,48 +652,44 @@ Hasap aç
 </button>
 
 <button
+id="authSwitch"
 class="authSwitch"
 onclick="switchAuthMode()">
 Girişe geç
 </button>
 
-<div
-id="authMessage"
+<div id="authMessage"
 class="authMessage">
 </div>
 
 </div>
 </div>
 
-
-<!-- PROFILE MENU -->
+<!-- PROFILE -->
 
 <div id="profileMenu" class="profileMenu">
 
 <p id="profileEmail">—</p>
 
-<div
-id="profilePremium"
+<div id="profilePremium"
 class="premiumStatus">
 Free
 </div>
 
-<button
-class="logout"
+<button class="logout"
 onclick="logout()">
 Çykmak
 </button>
 
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* ==============================
-   SUPABASE
-============================== */
+/* =========================
+SUPABASE
+========================= */
 
 const SUPABASE_URL =
 "https://ievywgyevceodiwgymce.supabase.co";
@@ -716,10 +703,9 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-
-/* ==============================
-   SONG FALLBACK
-============================== */
+/* =========================
+DÜNÝÄ
+========================= */
 
 const DUNYA_AUDIO =
 "https://ievywgyevceodiwgymce.supabase.co/storage/v1/object/public/songs/Dunya.mp3";
@@ -727,10 +713,9 @@ const DUNYA_AUDIO =
 const DUNYA_COVER =
 "https://ievywgyevceodiwgymce.supabase.co/storage/v1/object/public/songs/Dunya.jpg";
 
-
-/* ==============================
-   ELEMENTS
-============================== */
+/* =========================
+ELEMENTS
+========================= */
 
 const audio =
 document.getElementById("audio");
@@ -777,6 +762,9 @@ document.getElementById("authTitle");
 const authMainButton =
 document.getElementById("authMainButton");
 
+const authSwitch =
+document.getElementById("authSwitch");
+
 const authEmail =
 document.getElementById("authEmail");
 
@@ -798,13 +786,13 @@ document.getElementById("profilePremium");
 const premiumBox =
 document.getElementById("premiumBox");
 
-
-/* ==============================
-   VARIABLES
-============================== */
+/* =========================
+VARIABLES
+========================= */
 
 let songs = [];
 let filteredSongs = [];
+
 let currentIndex = -1;
 
 let authMode = "register";
@@ -812,10 +800,12 @@ let authMode = "register";
 let currentUser = null;
 let currentProfile = null;
 
+/* Aýdymy basyp, login garaşýan bolsa */
+let pendingSongIndex = -1;
 
-/* ==============================
-   AUTH WINDOW
-============================== */
+/* =========================
+ACCOUNT
+========================= */
 
 function openAccount(){
 
@@ -830,9 +820,19 @@ return;
 
 }
 
+authMode = "register";
+
+authTitle.textContent = "Hasap aç";
+authMainButton.textContent = "Hasap aç";
+authSwitch.textContent = "Girişe geç";
+
 authModal.style.display = "flex";
 
 }
+
+/* =========================
+AUTH CLOSE
+========================= */
 
 function closeAuth(){
 
@@ -842,38 +842,32 @@ authMessage.textContent = "";
 
 }
 
+/* =========================
+SWITCH LOGIN / REGISTER
+========================= */
+
 function switchAuthMode(){
 
 if(authMode === "register"){
 
 authMode = "login";
 
-authTitle.textContent =
-"Giriş";
+authTitle.textContent = "Giriş";
 
-authMainButton.textContent =
-"Giriş";
+authMainButton.textContent = "Giriş";
 
-document.querySelector(
-".authSwitch"
-).textContent =
-"Hasap aç";
+authSwitch.textContent = "Hasap aç";
 
 }
 else{
 
 authMode = "register";
 
-authTitle.textContent =
-"Hasap aç";
+authTitle.textContent = "Hasap aç";
 
-authMainButton.textContent =
-"Hasap aç";
+authMainButton.textContent = "Hasap aç";
 
-document.querySelector(
-".authSwitch"
-).textContent =
-"Girişe geç";
+authSwitch.textContent = "Girişe geç";
 
 }
 
@@ -881,10 +875,9 @@ authMessage.textContent = "";
 
 }
 
-
-/* ==============================
-   REGISTER / LOGIN
-============================== */
+/* =========================
+REGISTER / LOGIN
+========================= */
 
 async function authAction(){
 
@@ -903,9 +896,19 @@ return;
 
 }
 
+if(password.length < 6){
+
+authMessage.textContent =
+"Parol azyndan 6 simwol bolmaly.";
+
+return;
+
+}
+
 authMessage.textContent =
 "Garaşylýar...";
 
+try{
 
 if(authMode === "register"){
 
@@ -924,8 +927,10 @@ return;
 
 }
 
-authMessage.textContent =
-"Hasap döredildi. Email tassyklamasy gerek bolup biler.";
+/*
+Email confirmation açyk bolsa
+session null bolup biler.
+*/
 
 if(result.data.session){
 
@@ -935,6 +940,14 @@ result.data.user;
 await loadProfile();
 
 closeAuth();
+
+playPendingSong();
+
+}
+else{
+
+authMessage.textContent =
+"Hasap döredildi. Emailiňe gelen tassyklama hatyny barla.";
 
 }
 
@@ -963,14 +976,50 @@ await loadProfile();
 
 closeAuth();
 
+playPendingSong();
+
+}
+
+}
+catch(error){
+
+console.error(error);
+
+authMessage.textContent =
+"Bir näsazlyk boldy. Täzeden synanş.";
+
 }
 
 }
 
+/* =========================
+PENDING SONG
+========================= */
 
-/* ==============================
-   PROFILE
-============================== */
+function playPendingSong(){
+
+if(pendingSongIndex < 0){
+
+return;
+
+}
+
+const index =
+pendingSongIndex;
+
+pendingSongIndex = -1;
+
+setTimeout(function(){
+
+selectSong(index);
+
+},200);
+
+}
+
+/* =========================
+PROFILE
+========================= */
 
 async function loadProfile(){
 
@@ -980,14 +1029,12 @@ return;
 
 }
 
-
-let result =
+const result =
 await db
 .from("profiles")
 .select("*")
 .eq("id",currentUser.id)
 .maybeSingle();
-
 
 if(result.error){
 
@@ -1000,32 +1047,30 @@ return;
 
 }
 
-
 if(!result.data){
 
 console.log(
-"Profile entek döredilmedik."
+"Profile tapylmady."
 );
 
 return;
 
 }
 
-
 currentProfile =
 result.data;
 
-
-checkPremiumExpiry();
+await checkPremiumExpiry();
 
 updateAccountUI();
 
+renderSongs();
+
 }
 
-
-/* ==============================
-   PREMIUM EXPIRY
-============================== */
+/* =========================
+PREMIUM EXPIRY
+========================= */
 
 async function checkPremiumExpiry(){
 
@@ -1034,7 +1079,6 @@ if(!currentProfile){
 return;
 
 }
-
 
 if(
 currentProfile.premium &&
@@ -1049,7 +1093,6 @@ currentProfile.premium_until
 const now =
 new Date();
 
-
 if(now >= until){
 
 await db
@@ -1060,11 +1103,9 @@ premium_until:null
 })
 .eq("id",currentUser.id);
 
-currentProfile.premium =
-false;
+currentProfile.premium = false;
 
-currentProfile.premium_until =
-null;
+currentProfile.premium_until = null;
 
 }
 
@@ -1072,10 +1113,9 @@ null;
 
 }
 
-
-/* ==============================
-   ACCOUNT UI
-============================== */
+/* =========================
+ACCOUNT UI
+========================= */
 
 function updateAccountUI(){
 
@@ -1091,17 +1131,16 @@ return;
 
 }
 
-
 accountBtn.textContent =
 "👤 Hasabym";
-
 
 profileEmail.textContent =
 currentUser.email || "Email ýok";
 
-
-if(currentProfile &&
-currentProfile.premium){
+if(
+currentProfile &&
+currentProfile.premium
+){
 
 profilePremium.textContent =
 "⭐ PREMIUM";
@@ -1122,29 +1161,29 @@ premiumBox.textContent =
 
 }
 
-
-/* ==============================
-   LOGOUT
-============================== */
+/* =========================
+LOGOUT
+========================= */
 
 async function logout(){
 
 await db.auth.signOut();
 
 currentUser = null;
+
 currentProfile = null;
 
-profileMenu.style.display =
-"none";
+profileMenu.style.display = "none";
 
 updateAccountUI();
 
+renderSongs();
+
 }
 
-
-/* ==============================
-   AUTH STATE
-============================== */
+/* =========================
+AUTH STATE
+========================= */
 
 db.auth.onAuthStateChange(
 async function(event,session){
@@ -1160,18 +1199,20 @@ await loadProfile();
 else{
 
 currentUser = null;
+
 currentProfile = null;
 
 updateAccountUI();
+
+renderSongs();
 
 }
 
 });
 
-
-/* ==============================
-   SONGS
-============================== */
+/* =========================
+SONGS
+========================= */
 
 async function loadSongs(){
 
@@ -1180,7 +1221,6 @@ await db
 .from("Songs")
 .select("*")
 .order("id",{ascending:true});
-
 
 if(result.error){
 
@@ -1197,13 +1237,11 @@ return;
 
 }
 
-
 songs =
 result.data || [];
 
-
 songs =
-songs.map(song => {
+songs.map(function(song){
 
 if(
 song.title === "Dünýä" ||
@@ -1223,7 +1261,6 @@ return song;
 
 });
 
-
 filteredSongs =
 [...songs];
 
@@ -1231,6 +1268,9 @@ renderSongs();
 
 }
 
+/* =========================
+HELPERS
+========================= */
 
 function titleOf(song){
 
@@ -1240,7 +1280,6 @@ song.başlık ||
 
 }
 
-
 function artistOf(song){
 
 return song.artist ||
@@ -1249,7 +1288,6 @@ song.sanatçı ||
 "Hemra Rejepow";
 
 }
-
 
 function audioOf(song){
 
@@ -1271,7 +1309,9 @@ return song.audio_url;
 
 }
 
-if(titleOf(song) === "Dünýä"){
+if(
+titleOf(song) === "Dünýä"
+){
 
 return DUNYA_AUDIO;
 
@@ -1280,7 +1320,6 @@ return DUNYA_AUDIO;
 return "";
 
 }
-
 
 function coverOf(song){
 
@@ -1302,7 +1341,9 @@ return song.cover_url;
 
 }
 
-if(titleOf(song) === "Dünýä"){
+if(
+titleOf(song) === "Dünýä"
+){
 
 return DUNYA_COVER;
 
@@ -1312,10 +1353,9 @@ return "";
 
 }
 
-
-/* ==============================
-   RENDER SONGS
-============================== */
+/* =========================
+RENDER
+========================= */
 
 function renderSongs(){
 
@@ -1334,8 +1374,7 @@ return;
 
 }
 
-
-filteredSongs.forEach(song => {
+filteredSongs.forEach(function(song){
 
 const index =
 songs.indexOf(song);
@@ -1343,15 +1382,12 @@ songs.indexOf(song);
 const card =
 document.createElement("div");
 
-card.className =
-"song";
-
+card.className = "song";
 
 const cover =
 document.createElement("img");
 
-cover.className =
-"cover";
+cover.className = "cover";
 
 cover.src =
 coverOf(song);
@@ -1359,13 +1395,11 @@ coverOf(song);
 cover.alt =
 titleOf(song);
 
-
 const title =
 document.createElement("h3");
 
 title.textContent =
 titleOf(song);
-
 
 const artist =
 document.createElement("p");
@@ -1373,15 +1407,12 @@ document.createElement("p");
 artist.textContent =
 artistOf(song);
 
-
 const button =
 document.createElement("button");
 
-button.className =
-"play";
+button.className = "play";
 
-button.textContent =
-"▶";
+button.textContent = "▶";
 
 button.onclick =
 function(e){
@@ -1392,7 +1423,6 @@ selectSong(index);
 
 };
 
-
 card.onclick =
 function(){
 
@@ -1400,15 +1430,16 @@ selectSong(index);
 
 };
 
-
 card.appendChild(cover);
+
 card.appendChild(title);
+
 card.appendChild(artist);
+
 card.appendChild(button);
 
-
 /*
- PREMIUM DOWNLOAD
+Premium download
 */
 
 if(
@@ -1438,19 +1469,17 @@ card.appendChild(download);
 
 }
 
-
 songsBox.appendChild(card);
 
 });
 
 }
 
+/* =========================
+DOWNLOAD
+========================= */
 
-/* ==============================
-   DOWNLOAD
-============================== */
-
-async function downloadSong(song){
+function downloadSong(song){
 
 if(
 !currentProfile ||
@@ -1478,12 +1507,6 @@ return;
 
 }
 
-
-/*
- Diňe rugsady bar bolan aýdymlary
- download etmek üçin ulan.
-*/
-
 const a =
 document.createElement("a");
 
@@ -1502,17 +1525,50 @@ a.remove();
 
 }
 
-
-/* ==============================
-   SELECT SONG
-============================== */
+/* =========================
+SELECT SONG
+========================= */
 
 function selectSong(index){
+
+/*
+Iň möhüm ýer:
+Login ýok bolsa aýdym çalmaýar.
+Giriş/Hasap aç penjiresini açýar.
+*/
+
+if(!currentUser){
+
+pendingSongIndex = index;
+
+authMode = "register";
+
+authTitle.textContent =
+"Hasap aç";
+
+authMainButton.textContent =
+"Hasap aç";
+
+authSwitch.textContent =
+"Girişe geç";
+
+authMessage.textContent =
+"Aýdym diňlemek üçin ilki hasap aç.";
+
+authModal.style.display = "flex";
+
+return;
+
+}
 
 const song =
 songs[index];
 
-if(!song)return;
+if(!song){
+
+return;
+
+}
 
 currentIndex =
 index;
@@ -1552,37 +1608,54 @@ audio.removeAttribute("src");
 
 audio.load();
 
-audio.src =
-mp3;
+audio.src = mp3;
 
 audio.load();
 
 audio.play()
 .then(function(){
 
-playButton.textContent =
-"⏸";
+playButton.textContent = "⏸";
 
 })
 .catch(function(error){
 
-console.error(
-error
-);
+console.error(error);
 
-playButton.textContent =
-"▶";
+playButton.textContent = "▶";
 
 });
 
 }
 
-
-/* ==============================
-   PLAY
-============================== */
+/* =========================
+PLAY
+========================= */
 
 function togglePlay(){
+
+if(!currentUser){
+
+authMode = "register";
+
+authTitle.textContent =
+"Hasap aç";
+
+authMainButton.textContent =
+"Hasap aç";
+
+authSwitch.textContent =
+"Girişe geç";
+
+authMessage.textContent =
+"Aýdym diňlemek üçin ilki hasap aç.";
+
+authModal.style.display =
+"flex";
+
+return;
+
+}
 
 if(!audio.src){
 
@@ -1613,14 +1686,23 @@ audio.pause();
 
 }
 
-
-/* ==============================
-   NEXT / PREVIOUS
-============================== */
+/* =========================
+NEXT
+========================= */
 
 function nextSong(){
 
-if(!songs.length)return;
+if(!currentUser){
+
+return;
+
+}
+
+if(!songs.length){
+
+return;
+
+}
 
 let next =
 currentIndex + 1;
@@ -1635,10 +1717,23 @@ selectSong(next);
 
 }
 
+/* =========================
+PREVIOUS
+========================= */
 
 function previousSong(){
 
-if(!songs.length)return;
+if(!currentUser){
+
+return;
+
+}
+
+if(!songs.length){
+
+return;
+
+}
 
 let previous =
 currentIndex - 1;
@@ -1654,16 +1749,14 @@ selectSong(previous);
 
 }
 
-
 audio.addEventListener(
 "ended",
 nextSong
 );
 
-
-/* ==============================
-   AUDIO
-============================== */
+/* =========================
+AUDIO EVENTS
+========================= */
 
 audio.addEventListener(
 "loadedmetadata",
@@ -1674,12 +1767,15 @@ formatTime(audio.duration);
 
 });
 
-
 audio.addEventListener(
 "timeupdate",
 function(){
 
-if(!audio.duration)return;
+if(!audio.duration){
+
+return;
+
+}
 
 progress.value =
 (audio.currentTime /
@@ -1697,7 +1793,6 @@ audio.duration
 
 });
 
-
 audio.addEventListener(
 "play",
 function(){
@@ -1706,7 +1801,6 @@ playButton.textContent =
 "⏸";
 
 });
-
 
 audio.addEventListener(
 "pause",
@@ -1717,19 +1811,21 @@ playButton.textContent =
 
 });
 
-
 progress.addEventListener(
 "input",
 function(){
 
-if(!audio.duration)return;
+if(!audio.duration){
+
+return;
+
+}
 
 audio.currentTime =
-(progress.value / 100)
-* audio.duration;
+(progress.value / 100) *
+audio.duration;
 
 });
-
 
 volume.addEventListener(
 "input",
@@ -1740,10 +1836,9 @@ volume.value;
 
 });
 
-
-/* ==============================
-   SEARCH
-============================== */
+/* =========================
+SEARCH
+========================= */
 
 search.addEventListener(
 "input",
@@ -1755,9 +1850,9 @@ search.value
 .trim();
 
 filteredSongs =
-songs.filter(song => {
+songs.filter(function(song){
 
-return (
+return(
 titleOf(song)
 .toLowerCase()
 .includes(text) ||
@@ -1773,10 +1868,9 @@ renderSongs();
 
 });
 
-
-/* ==============================
-   GENRE
-============================== */
+/* =========================
+GENRE
+========================= */
 
 function filterGenre(
 genre,
@@ -1785,12 +1879,13 @@ button
 
 document
 .querySelectorAll(".genre")
-.forEach(btn =>
-btn.classList.remove("active")
-);
+.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
 
 button.classList.add("active");
-
 
 if(genre === "all"){
 
@@ -1801,10 +1896,14 @@ filteredSongs =
 else{
 
 filteredSongs =
-songs.filter(song =>
-(song.genre || "")
-.toLowerCase() === genre
-);
+songs.filter(function(song){
+
+return(
+song.genre || ""
+)
+.toLowerCase() === genre;
+
+});
 
 }
 
@@ -1812,10 +1911,9 @@ renderSongs();
 
 }
 
-
-/* ==============================
-   TIME
-============================== */
+/* =========================
+TIME
+========================= */
 
 function formatTime(seconds){
 
@@ -1840,10 +1938,9 @@ return min + ":" + sec;
 
 }
 
-
-/* ==============================
-   START
-============================== */
+/* =========================
+START
+========================= */
 
 (async function(){
 
@@ -1861,10 +1958,9 @@ await loadProfile();
 
 }
 
-loadSongs();
+await loadSongs();
 
 })();
-
 </script>
 
 </body>
