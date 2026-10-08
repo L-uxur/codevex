@@ -6,319 +6,472 @@
 <title>AÝDYMLY</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    font-family:Arial,sans-serif;
-    background:#050b14;
-    color:white;
-    min-height:100vh;
+font-family:Arial,sans-serif;
+background:#050b14;
+color:white;
+min-height:100vh
 }
 
 header{
-    height:70px;
-    background:#091522;
-    border-bottom:1px solid #1d344b;
-    display:flex;
-    align-items:center;
-    gap:25px;
-    padding:0 25px;
-    position:sticky;
-    top:0;
-    z-index:50;
+height:70px;
+background:#091522;
+border-bottom:1px solid #1d344b;
+display:flex;
+align-items:center;
+gap:18px;
+padding:0 25px;
+position:sticky;
+top:0;
+z-index:50
 }
 
 .logo{
-    color:#35e5d0;
-    font-size:25px;
-    font-weight:bold;
+color:#35e5d0;
+font-size:25px;
+font-weight:bold;
+white-space:nowrap
 }
 
-.search{
-    flex:1;
-    max-width:600px;
-}
+.search{flex:1;max-width:600px}
 
 .search input{
-    width:100%;
-    padding:13px 20px;
-    border-radius:25px;
-    border:1px solid #284159;
-    background:#101d2c;
-    color:white;
-    outline:none;
+width:100%;
+padding:13px 20px;
+border-radius:25px;
+border:1px solid #284159;
+background:#101d2c;
+color:white;
+outline:none
+}
+
+.accountBtn{
+border:1px solid #35e5d0;
+background:#102638;
+color:#35e5d0;
+padding:10px 15px;
+border-radius:20px;
+cursor:pointer;
+white-space:nowrap
+}
+
+.accountBtn:hover{
+background:#35e5d0;
+color:#06101b
 }
 
 main{
-    padding:25px;
-    padding-bottom:150px;
+padding:25px;
+padding-bottom:150px
 }
 
 .hero{
-    padding:40px;
-    min-height:220px;
-    border-radius:22px;
-    background:
-    radial-gradient(circle at 80% 20%,#155c7060,transparent 35%),
-    linear-gradient(135deg,#0b2740,#0d2032);
-    border:1px solid #203e57;
-    margin-bottom:30px;
+padding:40px;
+min-height:220px;
+border-radius:22px;
+background:
+radial-gradient(circle at 80% 20%,#155c7060,transparent 35%),
+linear-gradient(135deg,#0b2740,#0d2032);
+border:1px solid #203e57;
+margin-bottom:30px
 }
 
-.hero h1{
-    font-size:38px;
-    margin-bottom:12px;
+.hero h1{font-size:38px;margin-bottom:12px}
+.hero p{color:#9eb2c4}
+
+.premiumBox{
+margin-top:20px;
+display:inline-block;
+padding:10px 15px;
+border-radius:20px;
+background:#14283a;
+color:#35e5d0;
+border:1px solid #35e5d0
 }
 
-.hero p{
-    color:#9eb2c4;
-}
-
-h2{
-    margin-bottom:15px;
-}
+h2{margin-bottom:15px}
 
 .genres{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    margin-bottom:30px;
+display:flex;
+gap:10px;
+overflow-x:auto;
+margin-bottom:30px
 }
 
 .genre{
-    border:1px solid #25435c;
-    background:#0d1d2e;
-    color:#b7c9d9;
-    padding:10px 18px;
-    border-radius:25px;
-    white-space:nowrap;
-    cursor:pointer;
+border:1px solid #25435c;
+background:#0d1d2e;
+color:#b7c9d9;
+padding:10px 18px;
+border-radius:25px;
+white-space:nowrap;
+cursor:pointer
 }
 
 .genre.active,
 .genre:hover{
-    background:#35e5d0;
-    color:#06101b;
+background:#35e5d0;
+color:#06101b
 }
 
 .songs{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:20px
 }
 
 .song{
-    background:#0a1726;
-    border:1px solid #1b3349;
-    border-radius:17px;
-    padding:10px;
-    cursor:pointer;
-    transition:.25s;
+background:#0a1726;
+border:1px solid #1b3349;
+border-radius:17px;
+padding:10px;
+cursor:pointer;
+transition:.25s
 }
 
 .song:hover{
-    transform:translateY(-5px);
-    border-color:#35e5d0;
+transform:translateY(-5px);
+border-color:#35e5d0
 }
 
 .cover{
-    width:100%;
-    aspect-ratio:1;
-    border-radius:13px;
-    object-fit:cover;
-    background:#14283a;
+width:100%;
+aspect-ratio:1;
+border-radius:13px;
+object-fit:cover;
+background:#14283a
 }
 
 .song h3{
-    margin-top:11px;
-    font-size:16px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+margin-top:11px;
+font-size:16px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis
 }
 
 .song p{
-    margin-top:5px;
-    color:#8ea6ba;
-    font-size:13px;
+margin-top:5px;
+color:#8ea6ba;
+font-size:13px
 }
 
 .play{
-    width:43px;
-    height:43px;
-    border:0;
-    border-radius:50%;
-    background:#35e5d0;
-    color:#06101b;
-    font-size:18px;
-    cursor:pointer;
-    margin-top:10px;
+width:43px;
+height:43px;
+border:0;
+border-radius:50%;
+background:#35e5d0;
+color:#06101b;
+font-size:18px;
+cursor:pointer;
+margin-top:10px
+}
+
+.download{
+margin-top:8px;
+width:100%;
+padding:9px;
+border-radius:10px;
+border:1px solid #35e5d0;
+background:#102638;
+color:#35e5d0;
+cursor:pointer
+}
+
+.download:hover{
+background:#35e5d0;
+color:#06101b
 }
 
 .empty{
-    color:#8fa6ba;
-    padding:25px 0;
+color:#8fa6ba;
+padding:25px 0
 }
 
 /* PLAYER */
 
 .player{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:100px;
-    background:#091522f5;
-    backdrop-filter:blur(15px);
-    border-top:1px solid #29435a;
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:10px 20px;
-    z-index:100;
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+height:100px;
+background:#091522f5;
+backdrop-filter:blur(15px);
+border-top:1px solid #29435a;
+display:flex;
+align-items:center;
+gap:14px;
+padding:10px 20px;
+z-index:100
 }
 
 .playerCover{
-    width:65px;
-    height:65px;
-    border-radius:10px;
-    object-fit:cover;
-    background:#14283a;
+width:65px;
+height:65px;
+border-radius:10px;
+object-fit:cover;
+background:#14283a
 }
 
 .info{
-    width:180px;
-    min-width:100px;
+width:180px;
+min-width:100px
 }
 
 .title{
-    font-weight:bold;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+font-weight:bold;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis
 }
 
 .artist{
-    color:#8da5b9;
-    font-size:13px;
-    margin-top:5px;
+color:#8da5b9;
+font-size:13px;
+margin-top:5px
 }
 
 .controls{
-    display:flex;
-    align-items:center;
-    gap:8px;
+display:flex;
+align-items:center;
+gap:8px
 }
 
 .btn{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    border:0;
-    background:#14283a;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
+width:40px;
+height:40px;
+border-radius:50%;
+border:0;
+background:#14283a;
+color:white;
+cursor:pointer;
+font-size:16px
 }
 
 .mainBtn{
-    background:#35e5d0;
-    color:#06101b;
+background:#35e5d0;
+color:#06101b
 }
 
 .progressBox{
-    flex:1;
-    display:flex;
-    align-items:center;
-    gap:8px;
+flex:1;
+display:flex;
+align-items:center;
+gap:8px
 }
 
 .progress{
-    width:100%;
-    accent-color:#35e5d0;
+width:100%;
+accent-color:#35e5d0
 }
 
 .time{
-    color:#8da5b9;
-    font-size:11px;
-    white-space:nowrap;
+color:#8da5b9;
+font-size:11px;
+white-space:nowrap
 }
 
 .volume{
-    width:90px;
-    accent-color:#35e5d0;
+width:90px;
+accent-color:#35e5d0
+}
+
+/* AUTH */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+backdrop-filter:blur(8px);
+z-index:500;
+align-items:center;
+justify-content:center;
+padding:20px
+}
+
+.authBox{
+width:100%;
+max-width:400px;
+background:#091522;
+border:1px solid #29435a;
+border-radius:20px;
+padding:25px;
+box-shadow:0 20px 60px #000
+}
+
+.authBox h2{
+color:#35e5d0;
+margin-bottom:20px
+}
+
+.authBox input{
+width:100%;
+padding:13px;
+margin-bottom:12px;
+border-radius:10px;
+border:1px solid #284159;
+background:#101d2c;
+color:white;
+outline:none
+}
+
+.authMain{
+width:100%;
+padding:13px;
+border:0;
+border-radius:10px;
+background:#35e5d0;
+color:#06101b;
+font-weight:bold;
+cursor:pointer
+}
+
+.authSwitch{
+width:100%;
+margin-top:10px;
+padding:11px;
+border:1px solid #29435a;
+border-radius:10px;
+background:#102638;
+color:white;
+cursor:pointer
+}
+
+.closeBtn{
+float:right;
+border:0;
+background:none;
+color:#9eb2c4;
+font-size:24px;
+cursor:pointer
+}
+
+.authMessage{
+margin-top:12px;
+color:#9eb2c4;
+font-size:13px;
+line-height:1.5
+}
+
+/* ACCOUNT MENU */
+
+.profileMenu{
+display:none;
+position:fixed;
+top:75px;
+right:20px;
+width:260px;
+background:#091522;
+border:1px solid #29435a;
+border-radius:15px;
+padding:18px;
+z-index:200
+}
+
+.profileMenu p{
+color:#9eb2c4;
+font-size:13px;
+margin-bottom:10px;
+word-break:break-all
+}
+
+.premiumStatus{
+padding:10px;
+border-radius:10px;
+background:#102638;
+color:#35e5d0;
+margin-bottom:12px
+}
+
+.logout{
+width:100%;
+padding:10px;
+border:1px solid #7b3340;
+border-radius:10px;
+background:#27151b;
+color:#ff8090;
+cursor:pointer
 }
 
 /* MOBILE */
 
 @media(max-width:700px){
 
-    header{
-        padding:0 12px;
-        gap:12px;
-    }
+header{
+padding:0 10px;
+gap:8px
+}
 
-    .logo{
-        font-size:19px;
-    }
+.logo{font-size:18px}
 
-    main{
-        padding:15px;
-        padding-bottom:145px;
-    }
+.search{max-width:none}
 
-    .hero{
-        padding:25px;
-    }
+.search input{
+padding:11px 13px
+}
 
-    .hero h1{
-        font-size:28px;
-    }
+.accountBtn{
+padding:9px 10px;
+font-size:12px
+}
 
-    .songs{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
+main{
+padding:15px;
+padding-bottom:145px
+}
 
-    .song{
-        padding:8px;
-    }
+.hero{
+padding:25px
+}
 
-    .player{
-        height:105px;
-        padding:8px 10px;
-        gap:7px;
-    }
+.hero h1{font-size:28px}
 
-    .playerCover{
-        width:48px;
-        height:48px;
-    }
+.songs{
+grid-template-columns:repeat(2,1fr);
+gap:12px
+}
 
-    .info{
-        width:95px;
-        min-width:75px;
-    }
+.song{padding:8px}
 
-    .btn{
-        width:35px;
-        height:35px;
-    }
+.player{
+height:105px;
+padding:8px 10px;
+gap:7px
+}
 
-    .volume{
-        display:none;
-    }
+.playerCover{
+width:48px;
+height:48px
+}
 
-    .progressBox{
-        position:absolute;
-        left:10px;
-        right:10px;
-        bottom:4px;
-    }
+.info{
+width:95px;
+min-width:75px
+}
+
+.btn{
+width:35px;
+height:35px
+}
+
+.volume{display:none}
+
+.progressBox{
+position:absolute;
+left:10px;
+right:10px;
+bottom:4px
+}
+
+.profileMenu{
+right:10px;
+top:70px
+}
 }
 </style>
 </head>
@@ -327,9 +480,7 @@ h2{
 
 <header>
 
-<div class="logo">
-AÝDYMLY
-</div>
+<div class="logo">AÝDYMLY</div>
 
 <div class="search">
 <input
@@ -339,6 +490,13 @@ placeholder="Aýdym ýa-da aýdymçy gözle..."
 >
 </div>
 
+<button
+id="accountBtn"
+class="accountBtn"
+onclick="openAccount()">
+Giriş / Hasap
+</button>
+
 </header>
 
 
@@ -346,13 +504,17 @@ placeholder="Aýdym ýa-da aýdymçy gözle..."
 
 <section class="hero">
 
-<h1>
-Aýdymyňy saýla 🎵
-</h1>
+<h1>Aýdymyňy saýla 🎵</h1>
 
 <p>
 Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
 </p>
+
+<div
+id="premiumBox"
+class="premiumBox">
+Free
+</div>
 
 </section>
 
@@ -361,38 +523,32 @@ Halaýan aýdymlaryňy gözle, saýla we göni Aýdymly-da diňle.
 
 <div class="genres">
 
-<button
-class="genre active"
+<button class="genre active"
 onclick="filterGenre('all',this)">
 Hemmesi
 </button>
 
-<button
-class="genre"
+<button class="genre"
 onclick="filterGenre('pop',this)">
 Pop
 </button>
 
-<button
-class="genre"
+<button class="genre"
 onclick="filterGenre('rap',this)">
 Rap
 </button>
 
-<button
-class="genre"
+<button class="genre"
 onclick="filterGenre('phonk',this)">
 Phonk
 </button>
 
-<button
-class="genre"
+<button class="genre"
 onclick="filterGenre('funk',this)">
 Funk
 </button>
 
-<button
-class="genre"
+<button class="genre"
 onclick="filterGenre('turkmen',this)">
 Türkmen
 </button>
@@ -402,14 +558,8 @@ Türkmen
 
 <h2>Aýdymlar</h2>
 
-<div
-id="songs"
-class="songs">
-
-<div class="empty">
-Aýdymlar ýüklenýär...
-</div>
-
+<div id="songs" class="songs">
+<div class="empty">Aýdymlar ýüklenýär...</div>
 </div>
 
 </main>
@@ -419,97 +569,131 @@ Aýdymlar ýüklenýär...
 
 <div class="player">
 
-<img
-id="playerCover"
+<img id="playerCover"
 class="playerCover"
 alt="Cover"
 >
 
 <div class="info">
 
-<div
-id="playerTitle"
-class="title">
+<div id="playerTitle" class="title">
 Aýdym saýla
 </div>
 
-<div
-id="playerArtist"
-class="artist">
+<div id="playerArtist" class="artist">
 —
 </div>
 
 </div>
 
-
 <div class="controls">
 
-<button
-class="btn"
-onclick="previousSong()">
-⏮
-</button>
+<button class="btn"
+onclick="previousSong()">⏮</button>
 
-<button
-id="playButton"
+<button id="playButton"
 class="btn mainBtn"
-onclick="togglePlay()">
-▶
-</button>
+onclick="togglePlay()">▶</button>
 
-<button
-class="btn"
-onclick="nextSong()">
-⏭
-</button>
+<button class="btn"
+onclick="nextSong()">⏭</button>
 
 </div>
 
-
 <div class="progressBox">
 
-<span
-id="currentTime"
-class="time">
-0:00
-</span>
+<span id="currentTime" class="time">0:00</span>
 
-<input
-id="progress"
+<input id="progress"
 class="progress"
 type="range"
 min="0"
 max="100"
 value="0"
-step="0.1"
->
+step="0.1">
 
-<span
-id="duration"
-class="time">
-0:00
-</span>
+<span id="duration" class="time">0:00</span>
 
 </div>
 
-
-<input
-id="volume"
+<input id="volume"
 class="volume"
 type="range"
 min="0"
 max="1"
 step="0.01"
-value="1"
->
+value="1">
 
 </div>
 
 
-<audio
-id="audio"
-preload="metadata">
-</audio>
+<audio id="audio" preload="metadata"></audio>
+
+
+<!-- AUTH MODAL -->
+
+<div id="authModal" class="modal">
+
+<div class="authBox">
+
+<button class="closeBtn"
+onclick="closeAuth()">×</button>
+
+<h2 id="authTitle">Hasap aç</h2>
+
+<input
+id="authEmail"
+type="email"
+placeholder="Email"
+>
+
+<input
+id="authPassword"
+type="password"
+placeholder="Parol"
+>
+
+<button
+id="authMainButton"
+class="authMain"
+onclick="authAction()">
+Hasap aç
+</button>
+
+<button
+class="authSwitch"
+onclick="switchAuthMode()">
+Girişe geç
+</button>
+
+<div
+id="authMessage"
+class="authMessage">
+</div>
+
+</div>
+</div>
+
+
+<!-- PROFILE MENU -->
+
+<div id="profileMenu" class="profileMenu">
+
+<p id="profileEmail">—</p>
+
+<div
+id="profilePremium"
+class="premiumStatus">
+Free
+</div>
+
+<button
+class="logout"
+onclick="logout()">
+Çykmak
+</button>
+
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -528,14 +712,13 @@ const SUPABASE_KEY =
 
 const db =
 supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
+SUPABASE_URL,
+SUPABASE_KEY
 );
 
 
 /* ==============================
-   DUNYÄ MP3
-   GÖNI URL
+   SONG FALLBACK
 ============================== */
 
 const DUNYA_AUDIO =
@@ -582,20 +765,412 @@ document.getElementById("duration");
 const volume =
 document.getElementById("volume");
 
+const accountBtn =
+document.getElementById("accountBtn");
+
+const authModal =
+document.getElementById("authModal");
+
+const authTitle =
+document.getElementById("authTitle");
+
+const authMainButton =
+document.getElementById("authMainButton");
+
+const authEmail =
+document.getElementById("authEmail");
+
+const authPassword =
+document.getElementById("authPassword");
+
+const authMessage =
+document.getElementById("authMessage");
+
+const profileMenu =
+document.getElementById("profileMenu");
+
+const profileEmail =
+document.getElementById("profileEmail");
+
+const profilePremium =
+document.getElementById("profilePremium");
+
+const premiumBox =
+document.getElementById("premiumBox");
+
 
 /* ==============================
    VARIABLES
 ============================== */
 
 let songs = [];
-
 let filteredSongs = [];
-
 let currentIndex = -1;
+
+let authMode = "register";
+
+let currentUser = null;
+let currentProfile = null;
 
 
 /* ==============================
-   LOAD SUPABASE
+   AUTH WINDOW
+============================== */
+
+function openAccount(){
+
+if(currentUser){
+
+profileMenu.style.display =
+profileMenu.style.display === "block"
+? "none"
+: "block";
+
+return;
+
+}
+
+authModal.style.display = "flex";
+
+}
+
+function closeAuth(){
+
+authModal.style.display = "none";
+
+authMessage.textContent = "";
+
+}
+
+function switchAuthMode(){
+
+if(authMode === "register"){
+
+authMode = "login";
+
+authTitle.textContent =
+"Giriş";
+
+authMainButton.textContent =
+"Giriş";
+
+document.querySelector(
+".authSwitch"
+).textContent =
+"Hasap aç";
+
+}
+else{
+
+authMode = "register";
+
+authTitle.textContent =
+"Hasap aç";
+
+authMainButton.textContent =
+"Hasap aç";
+
+document.querySelector(
+".authSwitch"
+).textContent =
+"Girişe geç";
+
+}
+
+authMessage.textContent = "";
+
+}
+
+
+/* ==============================
+   REGISTER / LOGIN
+============================== */
+
+async function authAction(){
+
+const email =
+authEmail.value.trim();
+
+const password =
+authPassword.value;
+
+if(!email || !password){
+
+authMessage.textContent =
+"Email we paroly doldur.";
+
+return;
+
+}
+
+authMessage.textContent =
+"Garaşylýar...";
+
+
+if(authMode === "register"){
+
+const result =
+await db.auth.signUp({
+email:email,
+password:password
+});
+
+if(result.error){
+
+authMessage.textContent =
+result.error.message;
+
+return;
+
+}
+
+authMessage.textContent =
+"Hasap döredildi. Email tassyklamasy gerek bolup biler.";
+
+if(result.data.session){
+
+currentUser =
+result.data.user;
+
+await loadProfile();
+
+closeAuth();
+
+}
+
+}
+else{
+
+const result =
+await db.auth.signInWithPassword({
+email:email,
+password:password
+});
+
+if(result.error){
+
+authMessage.textContent =
+result.error.message;
+
+return;
+
+}
+
+currentUser =
+result.data.user;
+
+await loadProfile();
+
+closeAuth();
+
+}
+
+}
+
+
+/* ==============================
+   PROFILE
+============================== */
+
+async function loadProfile(){
+
+if(!currentUser){
+
+return;
+
+}
+
+
+let result =
+await db
+.from("profiles")
+.select("*")
+.eq("id",currentUser.id)
+.maybeSingle();
+
+
+if(result.error){
+
+console.error(
+"Profile error:",
+result.error
+);
+
+return;
+
+}
+
+
+if(!result.data){
+
+console.log(
+"Profile entek döredilmedik."
+);
+
+return;
+
+}
+
+
+currentProfile =
+result.data;
+
+
+checkPremiumExpiry();
+
+updateAccountUI();
+
+}
+
+
+/* ==============================
+   PREMIUM EXPIRY
+============================== */
+
+async function checkPremiumExpiry(){
+
+if(!currentProfile){
+
+return;
+
+}
+
+
+if(
+currentProfile.premium &&
+currentProfile.premium_until
+){
+
+const until =
+new Date(
+currentProfile.premium_until
+);
+
+const now =
+new Date();
+
+
+if(now >= until){
+
+await db
+.from("profiles")
+.update({
+premium:false,
+premium_until:null
+})
+.eq("id",currentUser.id);
+
+currentProfile.premium =
+false;
+
+currentProfile.premium_until =
+null;
+
+}
+
+}
+
+}
+
+
+/* ==============================
+   ACCOUNT UI
+============================== */
+
+function updateAccountUI(){
+
+if(!currentUser){
+
+accountBtn.textContent =
+"Giriş / Hasap";
+
+premiumBox.textContent =
+"Free";
+
+return;
+
+}
+
+
+accountBtn.textContent =
+"👤 Hasabym";
+
+
+profileEmail.textContent =
+currentUser.email || "Email ýok";
+
+
+if(currentProfile &&
+currentProfile.premium){
+
+profilePremium.textContent =
+"⭐ PREMIUM";
+
+premiumBox.textContent =
+"⭐ PREMIUM";
+
+}
+else{
+
+profilePremium.textContent =
+"Free";
+
+premiumBox.textContent =
+"Free";
+
+}
+
+}
+
+
+/* ==============================
+   LOGOUT
+============================== */
+
+async function logout(){
+
+await db.auth.signOut();
+
+currentUser = null;
+currentProfile = null;
+
+profileMenu.style.display =
+"none";
+
+updateAccountUI();
+
+}
+
+
+/* ==============================
+   AUTH STATE
+============================== */
+
+db.auth.onAuthStateChange(
+async function(event,session){
+
+if(session){
+
+currentUser =
+session.user;
+
+await loadProfile();
+
+}
+else{
+
+currentUser = null;
+currentProfile = null;
+
+updateAccountUI();
+
+}
+
+});
+
+
+/* ==============================
+   SONGS
 ============================== */
 
 async function loadSongs(){
@@ -619,6 +1194,7 @@ Aýdymlary ýüklemekde ýalňyşlyk boldy.
 `;
 
 return;
+
 }
 
 
@@ -626,16 +1202,12 @@ songs =
 result.data || [];
 
 
-/*
-   Eger Supabase-den ses_url gelmese-de,
-   Dünýä üçin göni URL ulanýarys.
-*/
-
-songs = songs.map(song => {
+songs =
+songs.map(song => {
 
 if(
-(song.title === "Dünýä") ||
-(song.başlık === "Dünýä")
+song.title === "Dünýä" ||
+song.başlık === "Dünýä"
 ){
 
 song.ses_url =
@@ -660,37 +1232,26 @@ renderSongs();
 }
 
 
-/* ==============================
-   DATA
-============================== */
-
 function titleOf(song){
 
-return (
-song.title ||
+return song.title ||
 song.başlık ||
-"Dünýä"
-);
+"Dünýä";
 
 }
 
 
 function artistOf(song){
 
-return (
-song.artist ||
+return song.artist ||
+song.sanatçy ||
 song.sanatçı ||
-"Hemra Rejepow"
-);
+"Hemra Rejepow";
 
 }
 
 
 function audioOf(song){
-
-/*
-   Iň möhüm ýer.
-*/
 
 if(
 song.ses_url &&
@@ -701,11 +1262,6 @@ return song.ses_url;
 
 }
 
-
-/*
-   audio_url hem bar bolsa
-*/
-
 if(
 song.audio_url &&
 song.audio_url.trim() !== ""
@@ -715,19 +1271,11 @@ return song.audio_url;
 
 }
 
-
-/*
-   Dünýä üçin göni MP3
-*/
-
-if(
-titleOf(song) === "Dünýä"
-){
+if(titleOf(song) === "Dünýä"){
 
 return DUNYA_AUDIO;
 
 }
-
 
 return "";
 
@@ -754,9 +1302,7 @@ return song.cover_url;
 
 }
 
-if(
-titleOf(song) === "Dünýä"
-){
+if(titleOf(song) === "Dünýä"){
 
 return DUNYA_COVER;
 
@@ -768,13 +1314,12 @@ return "";
 
 
 /* ==============================
-   RENDER
+   RENDER SONGS
 ============================== */
 
 function renderSongs(){
 
 songsBox.innerHTML = "";
-
 
 if(filteredSongs.length === 0){
 
@@ -786,6 +1331,7 @@ Aýdym tapylmady.
 `;
 
 return;
+
 }
 
 
@@ -837,7 +1383,6 @@ button.className =
 button.textContent =
 "▶";
 
-
 button.onclick =
 function(e){
 
@@ -857,16 +1402,103 @@ selectSong(index);
 
 
 card.appendChild(cover);
-
 card.appendChild(title);
-
 card.appendChild(artist);
-
 card.appendChild(button);
+
+
+/*
+ PREMIUM DOWNLOAD
+*/
+
+if(
+currentProfile &&
+currentProfile.premium
+){
+
+const download =
+document.createElement("button");
+
+download.className =
+"download";
+
+download.textContent =
+"📥 Telefona ýüklä";
+
+download.onclick =
+function(e){
+
+e.stopPropagation();
+
+downloadSong(song);
+
+};
+
+card.appendChild(download);
+
+}
+
 
 songsBox.appendChild(card);
 
 });
+
+}
+
+
+/* ==============================
+   DOWNLOAD
+============================== */
+
+async function downloadSong(song){
+
+if(
+!currentProfile ||
+!currentProfile.premium
+){
+
+alert(
+"Download diňe Premium üçin."
+);
+
+return;
+
+}
+
+const url =
+audioOf(song);
+
+if(!url){
+
+alert(
+"Audio URL tapylmady."
+);
+
+return;
+
+}
+
+
+/*
+ Diňe rugsady bar bolan aýdymlary
+ download etmek üçin ulan.
+*/
+
+const a =
+document.createElement("a");
+
+a.href = url;
+
+a.download =
+titleOf(song) + ".mp3";
+
+a.target = "_blank";
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
 
 }
 
@@ -880,34 +1512,22 @@ function selectSong(index){
 const song =
 songs[index];
 
-if(!song){
-return;
-}
-
+if(!song)return;
 
 currentIndex =
 index;
 
-
-const title =
+playerTitle.textContent =
 titleOf(song);
 
-const artist =
+playerArtist.textContent =
 artistOf(song);
-
-const mp3 =
-audioOf(song);
 
 const cover =
 coverOf(song);
 
-
-playerTitle.textContent =
-title;
-
-playerArtist.textContent =
-artist;
-
+const mp3 =
+audioOf(song);
 
 if(cover){
 
@@ -915,11 +1535,6 @@ playerCover.src =
 cover;
 
 }
-
-
-/*
-   MP3-ni göni audio elementine berýäris.
-*/
 
 if(!mp3){
 
@@ -930,7 +1545,6 @@ alert(
 return;
 
 }
-
 
 audio.pause();
 
@@ -943,12 +1557,6 @@ mp3;
 
 audio.load();
 
-
-/*
-   Telefon ulanyjy basandygy üçin
-   play() işlemeli.
-*/
-
 audio.play()
 .then(function(){
 
@@ -959,7 +1567,6 @@ playButton.textContent =
 .catch(function(error){
 
 console.error(
-"Audio play error:",
 error
 );
 
@@ -972,14 +1579,14 @@ playButton.textContent =
 
 
 /* ==============================
-   PLAY / PAUSE
+   PLAY
 ============================== */
 
 function togglePlay(){
 
 if(!audio.src){
 
-if(songs.length > 0){
+if(songs.length){
 
 selectSong(
 currentIndex >= 0
@@ -993,24 +1600,14 @@ return;
 
 }
 
-
 if(audio.paused){
 
-audio.play()
-.then(function(){
-
-playButton.textContent =
-"⏸";
-
-});
+audio.play();
 
 }
 else{
 
 audio.pause();
-
-playButton.textContent =
-"▶";
 
 }
 
@@ -1018,19 +1615,15 @@ playButton.textContent =
 
 
 /* ==============================
-   NEXT
+   NEXT / PREVIOUS
 ============================== */
 
 function nextSong(){
 
-if(songs.length === 0){
-return;
-}
-
+if(!songs.length)return;
 
 let next =
 currentIndex + 1;
-
 
 if(next >= songs.length){
 
@@ -1038,26 +1631,17 @@ next = 0;
 
 }
 
-
 selectSong(next);
 
 }
 
 
-/* ==============================
-   PREVIOUS
-============================== */
-
 function previousSong(){
 
-if(songs.length === 0){
-return;
-}
-
+if(!songs.length)return;
 
 let previous =
 currentIndex - 1;
-
 
 if(previous < 0){
 
@@ -1066,28 +1650,19 @@ songs.length - 1;
 
 }
 
-
 selectSong(previous);
 
 }
 
 
-/* ==============================
-   AUTO NEXT
-============================== */
-
 audio.addEventListener(
 "ended",
-function(){
-
-nextSong();
-
-}
+nextSong
 );
 
 
 /* ==============================
-   AUDIO EVENTS
+   AUDIO
 ============================== */
 
 audio.addEventListener(
@@ -1104,21 +1679,16 @@ audio.addEventListener(
 "timeupdate",
 function(){
 
-if(!audio.duration){
-return;
-}
-
+if(!audio.duration)return;
 
 progress.value =
 (audio.currentTime /
 audio.duration) * 100;
 
-
 currentTime.textContent =
 formatTime(
 audio.currentTime
 );
-
 
 duration.textContent =
 formatTime(
@@ -1148,33 +1718,11 @@ playButton.textContent =
 });
 
 
-audio.addEventListener(
-"error",
-function(){
-
-console.error(
-"MP3 açylmady:",
-audio.error
-);
-
-playButton.textContent =
-"▶";
-
-});
-
-
-/* ==============================
-   PROGRESS
-============================== */
-
 progress.addEventListener(
 "input",
 function(){
 
-if(!audio.duration){
-return;
-}
-
+if(!audio.duration)return;
 
 audio.currentTime =
 (progress.value / 100)
@@ -1182,10 +1730,6 @@ audio.currentTime =
 
 });
 
-
-/* ==============================
-   VOLUME
-============================== */
 
 volume.addEventListener(
 "input",
@@ -1210,26 +1754,20 @@ search.value
 .toLowerCase()
 .trim();
 
-
 filteredSongs =
 songs.filter(song => {
 
-const title =
-titleOf(song)
-.toLowerCase();
-
-const artist =
-artistOf(song)
-.toLowerCase();
-
-
 return (
-title.includes(text) ||
-artist.includes(text)
+titleOf(song)
+.toLowerCase()
+.includes(text) ||
+
+artistOf(song)
+.toLowerCase()
+.includes(text)
 );
 
 });
-
 
 renderSongs();
 
@@ -1247,12 +1785,9 @@ button
 
 document
 .querySelectorAll(".genre")
-.forEach(function(btn){
-
-btn.classList.remove("active");
-
-});
-
+.forEach(btn =>
+btn.classList.remove("active")
+);
 
 button.classList.add("active");
 
@@ -1266,18 +1801,12 @@ filteredSongs =
 else{
 
 filteredSongs =
-songs.filter(song => {
-
-return (
+songs.filter(song =>
 (song.genre || "")
-.toLowerCase()
-=== genre
+.toLowerCase() === genre
 );
 
-});
-
 }
-
 
 renderSongs();
 
@@ -1299,7 +1828,6 @@ return "0:00";
 
 }
 
-
 const min =
 Math.floor(seconds / 60);
 
@@ -1307,7 +1835,6 @@ const sec =
 Math.floor(seconds % 60)
 .toString()
 .padStart(2,"0");
-
 
 return min + ":" + sec;
 
@@ -1318,7 +1845,25 @@ return min + ":" + sec;
    START
 ============================== */
 
+(async function(){
+
+const sessionResult =
+await db.auth.getSession();
+
+if(
+sessionResult.data.session
+){
+
+currentUser =
+sessionResult.data.session.user;
+
+await loadProfile();
+
+}
+
 loadSongs();
+
+})();
 
 </script>
 
